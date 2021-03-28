@@ -1,20 +1,39 @@
 Last Name,First Name,Check all of the following which you enjoy listening to:,Music #1 Opinion,Music #2 Opinion,Music #3 Opinion,Music #4 Opinion,Music #5 Opinion,Music #6 Opinion,Music #7 Opinion,Music #8 Opinion,Music #9 Opinion,Music #10 Opinion,Music #11 Opinion,Music #12 Opinion
-Z,Z,"Rock, Classical",0,0,0,1,0,1,0,0,1,1,1,0
-Z,Z,"Country/Folk, Classical",1,0,1,1,1,1,0,0,0,0,1,0
-Z,Z,Classical,1,0,0,0,0,0,0,1,0,0,1,1
-Z,Z,Rock,0,1,1,0,0,1,0,1,1,1,0,0
-Z,Z,"Jazz/Blues, Rock",1,1,0,0,1,0,1,0,1,0,0,0
-Z,Z,Country/Folk,1,0,1,0,0,1,1,0,0,1,0,0
-Z,Z,"Rock, Country/Folk",1,0,0,1,0,0,0,0,1,1,0,0
-Z,Z,"Rock, Country/Folk, Classical",1,1,1,1,1,1,1,1,0,1,0,1
-Z,Z,"Rock, Country/Folk",0,1,0,1,1,0,1,1,1,0,1,0
-Z,Z,"Jazz/Blues, Rock, Country/Folk",0,0,1,1,1,0,0,1,0,1,1,1
-Z,Z,"Pop, Classical",0,1,1,0,1,1,1,1,1,1,1,1
-Z,Z,"Pop, Rock",1,1,0,1,0,0,1,1,1,0,0,0
-Z,Z,"Country/Folk, Rock",1,1,1,1,1,1,1,1,0,0,0,0
-Z,Z,"Country/Folk, Rock, Rap/Hip Hop",1,0,1,1,0,1,1,1,0,1,1,0
-Z,Z,"Country/Folk, Classical",0,1,1,0,0,0,1,1,0,0,1,1
-Z,Z,"Pop, Jazz/Blues, Rock, Country/Folk, Rap/Hip Hop, Classical",1,1,0,0,0,1,0,0,1,1,0,1
-Z,Z,"Jazz/Blues, Classical",0,1,1,0,0,1,0,0,1,1,0,0
-Z,Z,"Jazz/Blues, Rap/Hip Hop",0,1,0,0,1,0,0,0,0,1,1,1
-Z,Z,"Jazz/Blues, Rock, Country/Folk",1,1,1,0,1,1,0,0,0,1,0,0
+Doe,Woodchuck,"Rock, Classical",1,1,1,1,1,0,0,0,1,0,0,1
+Johnson,Auld,"Country/Folk, Classical",0,1,1,1,1,1,0,0,1,0,1,1
+Campbell,Hydrogen,Classical,1,0,0,1,1,1,1,1,0,1,1,0
+Quidor,Helium,Rock,0,0,1,1,1,1,1,0,0,1,0,1
+Norton,Beryllium,"Jazz/Blues, Rock",0,0,1,0,1,0,1,1,1,1,0,0
+Stravinsky,Lithium,Country/Folk,0,1,1,0,1,1,0,0,0,0,0,1
+Tolkien,Antimony,"Rock, Country/Folk",1,0,1,1,1,0,0,1,1,0,1,1
+Moore,Polonium,"Rock, Country/Folk, Classical",1,0,0,0,1,0,1,1,0,0,1,1
+Morris,Gold,"Rock, Country/Folk",1,0,0,0,0,1,1,1,1,1,1,1
+Usher,Silver,"Jazz/Blues, Rock, Country/Folk",1,0,0,1,0,0,1,1,0,0,0,1
+Solomon,Tzillah,"Pop, Classical",1,0,1,0,0,0,0,1,1,1,1,0
+Ripper,Vashti,"Pop, Rock",1,0,1,1,0,0,1,0,1,0,0,1
+Tibbets,Izebell,"Country/Folk, Rock",1,0,0,1,1,0,0,0,0,0,0,1
+Golloman,Deina,"Country/Folk, Rock, Rap/Hip Hop",0,0,0,1,0,1,1,1,1,1,1,0
+Ophelia,Apphia,"Country/Folk, Classical",0,1,0,0,0,1,1,1,0,0,0,1
+Dupin,Iahel,"Pop, Jazz/Blues, Rock, Country/Folk, Rap/Hip Hop, Classical",0,1,0,1,1,0,1,1,0,1,1,0
+Gaston,Namaah,"Jazz/Blues, Classical",0,1,0,0,1,0,0,0,1,0,1,0
+Shelton,Jamin,"Jazz/Blues, Rap/Hip Hop",0,1,1,1,1,0,0,0,1,0,1,0
+Sambo,Aod,"Jazz/Blues, Rock, Country/Folk",0,0,1,1,1,0,1,1,1,0,0,0
+Doe,Katya,"Rock, Classical",0,0,1,0,0,1,1,0,0,0,0,0
+Macy,Drogalis,"Country/Folk, Classical",0,1,1,1,1,1,1,0,0,1,1,1
+Campbell,Everness,Classical,1,1,0,0,0,0,0,1,1,0,1,0
+Langley,Greene,Rock,0,1,0,0,0,0,0,1,0,1,0,1
+Norton,Clara,"Jazz/Blues, Rock",1,0,1,1,1,1,1,0,1,0,1,0
+Stravinsky,Timothy,Country/Folk,0,0,1,1,0,1,0,0,1,0,0,1
+Tolkien,John,"Rock, Country/Folk",0,0,0,0,1,1,0,0,0,1,1,1
+Moore,Simon,"Rock, Country/Folk, Classical",0,0,1,0,1,1,0,0,1,0,0,1
+Covey,Edward,"Rock, Country/Folk",0,0,0,0,1,1,0,1,1,0,0,1
+Usher,Madeleine,"Jazz/Blues, Rock, Country/Folk",0,1,1,1,1,1,1,0,1,1,1,1
+Solomon,David,"Pop, Classical",0,0,0,1,1,0,0,1,1,1,0,0
+Ripper,Jack,"Pop, Rock",0,0,1,0,0,0,1,1,1,1,1,0
+Tibbets,Rocky,"Country/Folk, Rock",1,0,0,1,0,1,0,1,1,1,1,1
+Golloman,Smeagle,"Country/Folk, Rock, Rap/Hip Hop",0,0,0,1,1,0,1,0,1,0,0,1
+Ophelia,Hamlet,"Country/Folk, Classical",1,0,1,1,1,0,1,0,0,1,0,0
+Lupin,Teddy,"Pop, Jazz/Blues, Rock, Country/Folk, Rap/Hip Hop, Classical",0,1,0,1,0,0,1,1,1,1,0,1
+Gaston,Alfred,"Jazz/Blues, Classical",0,0,1,1,0,1,0,1,0,0,0,1
+Shelton,Tim,"Jazz/Blues, Rap/Hip Hop",1,1,0,0,1,1,1,0,0,0,0,0
+Sambo,Dumbo,"Jazz/Blues, Rock, Country/Folk",0,1,1,0,0,0,1,0,1,0,1,1

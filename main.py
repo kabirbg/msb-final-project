@@ -13,10 +13,11 @@ for x in range(students.shape[0]):
 
 student0=student(0)
 family0=family(0)
+family20=family(20)
 
 student0.display()
 family0.display()
-
+family20.display()
 
 
 
