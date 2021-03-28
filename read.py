@@ -4,7 +4,7 @@ filename=input()
 responses=d.read_csv(filename)
 
 print("Displayed as Pandas dataframe:")
-print(responses)
+print(responses.to_string())
 print("\nDisplayed with loops :)\n")
 for row in range(1,19):
     print("Student #%s:"%(row))
