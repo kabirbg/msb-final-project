@@ -1,0 +1,20 @@
+Last Name,First Name,Check all of the following which you enjoy listening to:,Music #1 Opinion,Music #2 Opinion,Music #3 Opinion,Music #4 Opinion,Music #5 Opinion,Music #6 Opinion,Music #7 Opinion,Music #8 Opinion,Music #9 Opinion,Music #10 Opinion,Music #11 Opinion,Music #12 Opinion,Last Name of Family Member #1,First Name of Family Member #1,Last Name of Family Member #2,First Name of Family Member #2,Last Name of Friend #1,First Name of Friend #1,Last Name of Friend #2,First Name of Friend #2
+A,A,"Pop, Jazz/Blues, Rap/Hip Hop, Classical",0,1,0,1,0,0,0,1,1,1,0,0,A,A,A,A,A,A,A,A
+A,A,"Rock, Country/Folk",0,1,1,1,0,0,1,0,1,0,1,0,A,A,A,A,A,A,A,A
+A,A,"Pop, Rock, Rap/Hip Hop",1,0,1,0,1,1,1,0,1,1,0,1,A,A,A,A,A,A,A,A
+A,A,Classical,0,1,0,0,0,1,0,0,1,0,0,0,A,A,A,A,A,A,A,A
+A,A,Country/Folk,0,1,0,1,1,1,0,0,1,0,1,0,A,A,A,A,A,A,A,A
+A,A,Pop,0,0,0,1,0,0,0,0,0,0,0,0,A,A,A,A,A,A,A,A
+A,A,Pop,1,1,1,0,0,0,0,0,0,0,1,1,A,A,A,A,A,A,A,A
+A,A,"Pop, Rock",1,0,1,1,0,1,0,0,0,1,0,1,A,A,A,A,A,A,A,A
+A,A,"Country/Folk, Rap/Hip Hop",0,0,0,1,0,1,0,0,1,1,0,0,A,A,A,A,A,A,A,A
+A,A,Classical,1,1,0,0,1,0,1,0,1,0,1,1,A,A,A,A,A,A,A,A
+A,A,"Pop, Rock",0,1,0,1,1,1,0,1,0,0,0,0,A,A,A,A,A,A,A,A
+A,A,Rock,1,0,0,1,0,1,1,1,1,0,1,0,A,A,A,A,A,A,A,A
+A,A,Jazz/Blues,0,1,1,0,1,0,0,0,0,1,1,1,A,A,A,A,A,A,A,A
+A,A,"Jazz/Blues, Rock",0,1,1,1,1,1,0,0,0,1,1,0,A,A,A,A,A,A,A,A
+A,A,"Pop, Jazz/Blues, Rock, Country/Folk, Rap/Hip Hop, Classical",1,1,0,1,0,1,1,0,1,1,1,1,A,A,A,A,A,A,A,A
+A,A,"Pop, Jazz/Blues, Rock, Country/Folk, Rap/Hip Hop",1,1,0,0,0,1,1,1,1,1,0,0,A,A,A,A,A,A,A,A
+A,A,"Jazz/Blues, Classical",0,0,0,0,1,1,0,1,0,1,1,0,A,A,A,A,A,A,A,A
+A,A,Classical,0,0,0,1,1,0,0,0,1,1,1,0,A,A,A,A,A,A,A,A
+A,A,"Pop, Rap/Hip Hop",0,1,1,1,1,0,1,0,0,0,0,0,A,A,A,A,A,A,A,A

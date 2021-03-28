@@ -1,0 +1,20 @@
+Last Name,First Name,Check all of the following which you enjoy listening to:,Music #1 Opinion,Music #2 Opinion,Music #3 Opinion,Music #4 Opinion,Music #5 Opinion,Music #6 Opinion,Music #7 Opinion,Music #8 Opinion,Music #9 Opinion,Music #10 Opinion,Music #11 Opinion,Music #12 Opinion
+,,"Rock, Classical",0,0,1,0,1,1,0,1,1,0,1,0
+,,"Country/Folk, Classical",1,1,0,1,1,1,1,0,1,0,0,0
+,,Classical,1,1,0,1,0,1,1,0,1,1,1,0
+,,Rock,0,1,0,0,0,0,0,1,1,1,1,0
+,,"Jazz/Blues, Rock",0,0,1,0,1,0,1,0,1,0,0,1
+,,Country/Folk,1,1,1,0,0,0,0,0,1,0,0,0
+,,"Rock, Country/Folk",0,0,0,0,0,1,0,1,0,0,1,0
+,,"Rock, Country/Folk, Classical",1,0,0,1,1,0,1,1,1,1,0,0
+,,"Rock, Country/Folk",0,1,0,0,0,0,1,0,1,0,1,1
+,,"Jazz/Blues, Rock, Country/Folk",1,0,0,0,1,1,1,0,1,0,0,0
+,,"Pop, Classical",0,1,1,1,0,0,1,0,0,0,1,0
+,,"Pop, Rock",0,0,0,1,0,1,1,1,0,0,0,0
+,,"Country/Folk, Rock",1,0,1,0,0,1,1,0,1,0,0,0
+,,"Country/Folk, Rock, Rap/Hip Hop",0,1,1,1,0,1,1,0,0,0,0,0
+,,"Country/Folk, Classical",0,1,0,0,1,0,0,1,1,1,0,1
+,,"Pop, Jazz/Blues, Rock, Country/Folk, Rap/Hip Hop, Classical",1,0,1,1,1,0,0,0,1,1,1,1
+,,"Jazz/Blues, Classical",0,1,0,0,0,0,0,1,1,0,1,0
+,,"Jazz/Blues, Rap/Hip Hop",0,0,0,1,0,1,0,1,1,0,0,0
+,,"Jazz/Blues, Rock, Country/Folk",0,1,1,1,1,1,1,1,1,0,1,1
