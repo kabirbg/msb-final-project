@@ -7,7 +7,7 @@ from people import *
 
 # MAKE THIS WORK
 """
-for x in range(0,students.shape[0]):
+for x in range(students.shape[0]):
     student_x=student(x)
 """
 
@@ -33,7 +33,7 @@ def read_df(csv_filename,type):
         print(dataframe.to_string())
     elif type=="loop":
         print("Displayed with loops :)\n")
-        for row in range(1,19):
+        for row in range(19):
             print("Student #%s:"%(row))
             for column in responses:
                 print("%s: "%(column)+str(responses.at[row,column]))
