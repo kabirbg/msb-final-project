@@ -23,8 +23,10 @@ class student:
     fam2last=""
     fam2first=""
     friend1last=""
+    friend1first=""
     friend2last=""
     friend2first=""
+    selections=[]
 
     def __init__(self, row):
         self.last=students.iat[row,0]
@@ -75,8 +77,23 @@ class student:
         print(self.friend1first,end="\t")
         print(self.friend2last,end=", ")
         print(self.friend2first)
+        print(self.selections)
         print("\n")
 
+    def selftest(self):
+        self.selections=[0,0,0,0,0,0]
+        if ("Pop" in self.genres and not (self.m1==0 and self.m2==0)) or ((not "Pop" in self.genres) and self.m1==1 and self.m2==1):
+            self.selections[0]=1
+        if ("Jazz/Blues" in self.genres and not (self.m3==0 and self.m4==0)) or ((not "Jazz/Blues" in self.genres) and self.m3==1 and self.m4==1):
+            self.selections[1]=1
+        if ("Rock" in self.genres and not (self.m5==0 and self.m6==0)) or ((not "Rock" in self.genres) and self.m5==1 and self.m6==1):
+            self.selections[2]=1
+        if ("Country/Folk" in self.genres and not (self.m7==0 and self.m8==0)) or ((not "Country/Folk" in self.genres) and self.m7==1 and self.m8==1):
+            self.selections[3]=1
+        if ("Rap/Hip Hop" in self.genres and not (self.m9==0 and self.m10==0)) or ((not "Rap/Hip Hop" in self.genres) and self.m9==1 and self.m10==1):
+            self.selections[4]=1
+        if ("Classical" in self.genres and not (self.m11==0 and self.m12==0)) or ((not "Classical" in self.genres) and self.m11==1 and self.m12==1):
+            self.selections[5]=1
 
 class family:
     last=""
@@ -94,9 +111,9 @@ class family:
     m10=0
     m11=0
     m12=0
+    selections=[]
 
     def __init__(self, row):
-        print(families.iat[row,0])
         self.last=families.iat[row,0]
         self.first=families.iat[row,1]
         self.genres=families.iat[row,2]
@@ -129,4 +146,20 @@ class family:
         print(self.m10,end=", ")
         print(self.m11,end=", ")
         print(self.m12)
+        print(self.selections) 
         print("\n")
+
+    def selftest(self):
+        self.selections=[0,0,0,0,0,0]
+        if ("Pop" in self.genres and not (self.m1==0 and self.m2==0)) or ((not "Pop" in self.genres) and self.m1==1 and self.m2==1):
+            self.selections[0]=1
+        if ("Jazz/Blues" in self.genres and not (self.m3==0 and self.m4==0)) or ((not "Jazz/Blues" in self.genres) and self.m3==1 and self.m4==1):
+            self.selections[1]=1
+        if ("Rock" in self.genres and not (self.m5==0 and self.m6==0)) or ((not "Rock" in self.genres) and self.m5==1 and self.m6==1):
+            self.selections[2]=1
+        if ("Country/Folk" in self.genres and not (self.m7==0 and self.m8==0)) or ((not "Country/Folk" in self.genres) and self.m7==1 and self.m8==1):
+            self.selections[3]=1
+        if ("Rap/Hip Hop" in self.genres and not (self.m9==0 and self.m10==0)) or ((not "Rap/Hip Hop" in self.genres) and self.m9==1 and self.m10==1):
+            self.selections[4]=1
+        if ("Classical" in self.genres and not (self.m11==0 and self.m12==0)) or ((not "Classical" in self.genres) and self.m11==1 and self.m12==1):
+            self.selections[5]=1
