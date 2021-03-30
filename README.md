@@ -1,2 +1,5 @@
 # MSB Final Project
-This repo (will) contain code for my MSB final project, which may include an HTML web form with PHP and a Python script to read data from a CSV and perform statistical analysis.
+This repo contains code for my MSB final project, which includes the following:
+- main.py: Python script to read 
+- people.py: Python script with class definitions for students and family members
+- docs: Research paper for my final project (in LaTeX, to be added)
