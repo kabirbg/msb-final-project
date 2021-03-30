@@ -1,7 +1,5 @@
-# import something statistical, or change the following func to make it meaningful:
-def stattest(list1, list2):
-    intersect=set(list1).intersection(list2)
-
+from scipy.stats import wilcoxon 
+from statistics import multimode
 from pandas import *
 students=read_csv("Students.csv")
 families=read_csv("Family Members.csv")
@@ -43,10 +41,10 @@ for index in range(len(studs)):
             friend2=studs[row]
 
     # run tests between stud and each fam/friend
-    gene_results.append(stattest(stud.selections,fam1.selections))
-    gene_results.append(stattest(stud.selections,fam2.selections))
-    env_results.append(stattest(stud.selections,friend1.selections))
-    env_results.append(stattest(stud.selections,friend2.selections))
+    gene_results.append(wilcoxon(stud.selections,fam1.selections))
+    gene_results.append(wilcoxon(stud.selections,fam2.selections))
+    env_results.append(wilcoxon(stud.selections,friend1.selections))
+    env_results.append(wilcoxon(stud.selections,friend2.selections))
 
 print("Here are the results of the statistical tests for the family members:")
 print(gene_results)
@@ -54,7 +52,6 @@ print("Here are the results of the statistical tests for the friends:")
 print(env_results)
 
 # find the mode of the test results for each relationship
-from statistics import multimode
 print("Here is the more common result of the statistical tests for the family members:")
 print(multimode(gene_results))
 print("Here is the more common result of the statistical tests for the friends:")
