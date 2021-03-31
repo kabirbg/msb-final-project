@@ -7,13 +7,15 @@
 from scipy.stats import wilcoxon,chi2_contingency
 from statistics import multimode
 from pandas import *
-students=read_csv("Students.csv")
-families=read_csv("Family Members.csv")
+students=read_csv("private/Students.csv")
+families=read_csv("private/Family Members.csv")
 from people import *
 studs=[]
 fams=[]
 env_results=[]
 gene_results=[]
+numstudents=students.shape[0]
+numfamilies=families.shape[0]
 print(students)
 print(families)
 print("CSVs were successfully imported into the pandas dataframe; proceeding to creating objects for each individual.")
@@ -26,9 +28,9 @@ print("CSVs were successfully imported into the pandas dataframe; proceeding to 
 ############################
 
 # add a student/family object for each row in the dataframe
-for row in range(students.shape[0]):
+for row in range(numstudents):
     studs.append(student(row))
-for row in range(families.shape[0]):
+for row in range(numfamilies):
     fams.append(family(row))
 print("Student/Family objects were successfully created; running statistical tests to check the integrity of each individual's data.")
 # run tests to check integrity of each individual's data
@@ -50,7 +52,7 @@ print("Running tests between each student and each family member/friend.")
 for index in range(len(studs)):
     stud=studs[index]
     fam1=fams[index]
-    fam2=fams[index+19]
+    fam2=fams[index+numstudents-1]
     for row in range(len(studs)):
         if stud.friend1first==studs[row].first and stud.friend1last==studs[row].last:
             friend1=studs[row]
@@ -60,7 +62,7 @@ for index in range(len(studs)):
     # run tests between stud and each fam/friend
     for person in [fam1.selections, fam2.selections, friend1.selections, friend2.selections]:
         w,p = wilcoxon(stud.selections,person)
-        print("The Wil-Coxon test statistic for {} is {}, for a p-value of {}.".format(stud,w,p))
+        print("The Wil-Coxon test statistic for {} {} is {}, for a p-value of {}.".format(stud.first,stud.last,w,p))
         if p<0.5:
             if p<0.1:
                 if person is (fam1.selections or fam2.selections):

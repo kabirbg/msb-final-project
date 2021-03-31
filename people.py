@@ -1,6 +1,6 @@
 from pandas import *
-students=read_csv("Students.csv")
-families=read_csv("Family Members.csv")
+students=read_csv("private/Students.csv")
+families=read_csv("private/Family Members.csv")
 
 class student:
     last=""
