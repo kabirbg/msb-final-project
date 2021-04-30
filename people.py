@@ -1,4 +1,4 @@
-from pandas import *
+from pandas import read_csv
 students=read_csv("private/Students.csv")
 families=read_csv("private/Family Members.csv")
 

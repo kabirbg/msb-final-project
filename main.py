@@ -6,7 +6,7 @@
 
 from scipy.stats import wilcoxon,chi2_contingency
 from statistics import multimode
-from pandas import *
+from pandas import read_csv
 students=read_csv("private/Students.csv")
 families=read_csv("private/Family Members.csv")
 from people import *
@@ -108,12 +108,4 @@ X2,p,df,ex=chi2_contingency(chi2observed)
 print("Here are the expected frequencies of each type of result for family members and friends, respectively:")
 print(ex)
 print("The result of the Chi-Square Test for Association is test statistic X^2 = {}, which gives us a p-value of {} with {} degrees of freedom.".format(X2,p,df))
-
-
-###########################
-###########################
-####### OTHER STUFF #######
-###########################
-###########################
-
 
