@@ -1,17 +1,30 @@
-from pandas import read_csv
-students=read_csv("private/Students.csv")
-families=read_csv("private/Family Members.csv")
+from pandas import read_csv #necessary for importing csv data as a pandas dataframe
+students=read_csv("private/Students.csv") #initialize dataframe for students
+families=read_csv("private/Family Members.csv") #and one for families
 
-class student:
+class student:#I'll have one object of this type for each participating student
     name=[]
-    genres=""
-    m=[]
     fam=[]
     friends=[]
     rank=-1
 
-    def rank(self):
+    def display(self):
+        print("Name: "+self.name)
+        print("Ranks: "+self.rank)
+        print("Family: "+self.fam)
+        print("Friends: "+self.friends)
+        print("\n")
+
+    def __init__(self, row):
+        #basic info
+        self.name=[students.iat[row,0],students.iat[row,1]] #name (last,first) is a list
+        self.fam=[(students.iat[row,15],students.iat[row,15]),(students.iat[row,17],students.iat[row,18])]#each family member occupies a list similar to above; fam contains both lists
+        self.friends=[(students.iat[row,19],students.iat[row,20]),(students.iat[row,21],students.iat[row,22])]#same as above, for friends
+        #generate & store rankings
+        genres=students.iat[row,2]#temporarily store genre selections
+        m=[students.iat[row,3],students.iat[row,4],students.iat[row,5],students.iat[row,6],students.iat[row,7],students.iat[row,8],students.iat[row,9],students.iat[row,10],students.iat[row,11],students.iat[row,12],students.iat[row,13],students.iat[row,14]]#temporarily store song selections
         for genre in range(1,7): #each number represents a genre (1=pop, 2=jazz & blues, and so on)
+            #assign rank system based on flowchart:
             if genre in self.genres:
                 if self.m[genre*2-1]==1 and self.m[genre*2]==1:
                     self.rank=5
@@ -26,34 +39,21 @@ class student:
                     self.rank=1
                 else:
                     self.rank=0
+        self.display()#display info to ensure operation completed successfully
 
-    def __init__(self, row):
-        self.name=[students.iat[row,0],students.iat[row,1]]
-        self.genres=students.iat[row,2]
-        self.m=[students.iat[row,3],students.iat[row,4],students.iat[row,5],students.iat[row,6],students.iat[row,7],students.iat[row,8],students.iat[row,9],students.iat[row,10],students.iat[row,11],students.iat[row,12],students.iat[row,13],students.iat[row,14]]
-        self.fam=[(students.iat[row,15],students.iat[row,15]),(students.iat[row,17],students.iat[row,18])]
-        self.friends=[(students.iat[row,19],students.iat[row,20]),(students.iat[row,21],students.iat[row,22])]
-        self.rank()
-
-    def display(self):
-        print(self.name)
-        if self.rank==-1:
-            print(self.genres)
-            print(self.m)
-        else:
-            print("Rank: " + self.rank)
-        print(self.fam)
-        print(self.friends)
-        print("\n")
-
-class family:
+class family:#I'll have one object of this type for each participating family member; identical to Student but lacks fam[] and friends[]
     name=[]
-    genres=""
-    m=[]
     rank=-1
 
-    def rank(self):
-        for genre in range(1,7): #each number represents a genre (1=pop, 2=jazz & blues, and so on)
+    def display(self):
+        print("Name: "+self.name)
+        print("Ranks: "+self.rank)
+        print("\n")
+
+    def __init__(self, row):
+        self.name=[students.iat[row,0],students.iat[row,1]]
+        m=[students.iat[row,3],students.iat[row,4],students.iat[row,5],students.iat[row,6],students.iat[row,7],students.iat[row,8],students.iat[row,9],students.iat[row,10],students.iat[row,11],students.iat[row,12],students.iat[row,13],students.iat[row,14]]
+        for genre in range(1,7):
             if genre in self.genres:
                 if self.m[genre*2-1]==1 and self.m[genre*2]==1:
                     self.rank=5
@@ -68,18 +68,5 @@ class family:
                     self.rank=1
                 else:
                     self.rank=0
+        self.display()
 
-    def __init__(self, row):
-        self.name=[students.iat[row,0],students.iat[row,1]]
-        self.genres=students.iat[row,2]
-        self.m=[students.iat[row,3],students.iat[row,4],students.iat[row,5],students.iat[row,6],students.iat[row,7],students.iat[row,8],students.iat[row,9],students.iat[row,10],students.iat[row,11],students.iat[row,12],students.iat[row,13],students.iat[row,14]]
-        self.rank()
-
-    def display(self):
-        print(self.name)
-        if self.rank==-1:
-            print(self.genres)
-            print(self.m)
-        else:
-            print("Rank: " + self.rank)
-        print("\n")
