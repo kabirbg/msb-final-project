@@ -1,111 +1,94 @@
-###########################
-###########################
-######### SETUP ###########
-###########################
-###########################
+#!/usr/bin/env python3
 
-from scipy.stats import wilcoxon,chi2_contingency
-from statistics import multimode
-from pandas import read_csv
-students=read_csv("private/Students.csv")
-families=read_csv("private/Family Members.csv")
-from people import *
-studs=[]
-fams=[]
-env_results=[]
-gene_results=[]
-numstudents=students.shape[0]
-numfamilies=families.shape[0]
-print(students)
-print(families)
-print("CSVs were successfully imported into the pandas dataframe; proceeding to creating objects for each individual.")
+def wc(studs, fams):
+    #initialize arrays to hold the results of the WC tests
+    fam_results=[]
+    friend_results=[]
 
+    print("Running tests between each student and each family member/friend.")
+    for index in range(len(studs)):
+        # assign family members and friends
+        student=studs[index]
+        for row in range(len(studs)):
+            if student.friends[0]==studs[row].name:
+                friend0=studs[row]
+            if student.friends[1]==studs[row].first and student.friend2last==studs[row].last:
+                friend1=studs[row]
+            if student.fam[0]==fams[row].name:
+                fam0=studs[row]
+            if student.fam[1]==fams[row].first and student.friend2last==studs[row].last:
+                fam1=studs[row]
 
-############################
-############################
-####### BASIC TESTS ########
-############################
-############################
-
-# add a student/family object for each row in the dataframe
-for row in range(numstudents):
-    studs.append(student(row))
-for row in range(numfamilies):
-    fams.append(family(row))
-print("Student/Family objects were successfully created; running statistical tests to check the integrity of each individual's data.")
-# run tests to check integrity of each individual's data
-for student in studs:
-    student.selftest()
-for family in fams:
-    family.selftest()
-
-
-#############################
-#############################
-###### WILCOXON TESTS #######
-#############################
-#############################
-
-print("Running tests between each student and each family member/friend.")
-
-# assign family members and friends
-for index in range(len(studs)):
-    stud=studs[index]
-    fam1=fams[index]
-    fam2=fams[index+numstudents-1]
-    for row in range(len(studs)):
-        if stud.friend1first==studs[row].first and stud.friend1last==studs[row].last:
-            friend1=studs[row]
-        if stud.friend2first==studs[row].first and stud.friend2last==studs[row].last:
-            friend2=studs[row]
-
-    # run tests between stud and each fam/friend
-    for person in [fam1.selections, fam2.selections, friend1.selections, friend2.selections]:
-        w,p = wilcoxon(stud.selections,person)
-        print("The Wil-Coxon test statistic for {} {} is {}, for a p-value of {}.".format(stud.first,stud.last,w,p))
-        if p<0.5:
+        # run tests between student and each family member
+        for person in (fam1, fam2):
+            w,p = wilcoxon(student.ranks,person.ranks)
+            print("The Wilcoxon test statistic between {} {} and {} {} (family member) is W={} (p={}).".format(student.name[1],student.name[0],person.name[1],person.name[0],w,p))
             if p<0.1:
-                if person is (fam1.selections or fam2.selections):
-                    gene_results.append("highly statistically significant")
-                else:
-                    env_results.append("highly statistically significant")
+                fam_results.append("highly statistically significant")
+            elif p<0.5:
+                fam_results.append("statistically significant")
             else:
-                if person is (fam1.selections or fam2.selections):
-                    gene_results.append("statistically significant")
-                else:
-                    env_results.append("statistically significant")
-        else:
-            if person is (fam1.selections or fam2.selections):
-                gene_results.append("insignificant")
+                fam_results.append("insignificant")
+        #run tests between student and each friend
+        for person in (friend1, friend2):
+            w,p = wilcoxon(student.ranks,person.ranks)
+            print("The Wilcoxon test statistic between {} {} and {} {} (friend) is W={} (p={}).".format(student.name[1],student.name[0],person.name[1],person.name[0],w,p))
+            if p<0.1:
+                friend_results.append("highly statistically significant")
+            elif p<0.5:
+                friend_results.append("statistically significant")
             else:
-                env_results.append("insignificant")
-        # that's it unless i want to do something with the statistic (W)
+                friend_results.append("insignificant")
 
-print("Here are the results of the Wilcoxon Tests for the family members:")
-print(gene_results)
-print("Here are the results of the Wilcoxon Tests for the friends:")
-print(env_results)
+    return (fam_results, friend_results)
 
+def chi2(group1, group1):
+    # conduct chi-square test for association
+    chi2observed=[[group1.count("insignificant"),group1.count("statistically significant"),group1.count("highly statistically significant")],
+            [group2.count("insignificant"),group2.count("statistically significant"),group2.count("highly statistically significant")]]
+    print("Here are the observed frequencies of each type of result for family members and friends, respectively:")
+    print(chi2observed)
+    X2,p,df,ex=chi2_contingency(chi2observed)
+    print("Here are the expected frequencies of each type of result for family members and friends, respectively:")
+    print(ex)
+    print("The result of the Chi-Square Test for Association is test statistic X^2 = {} with {} degrees of freedom, which gives us a p-value of {}.".format(X2,df,p))
+    return p
 
-############################
-############################
-##### CHI-SQUARE TESTS #####
-############################
-############################
+def correlation_regression(students,families):
+    #TODO: WORK ON THIS!
 
-# find the mode of the test results for each relationship
-print("Here is the more common result of the tests for the family members:")
-print(multimode(gene_results))
-print("Here is the more common result of the tests for the friends:")
-print(multimode(env_results))
+def main():
+    #create lists to hold student and family objects:
+    studs=[]
+    fams=[]
+    print(students)
+    print(families)
+    print("CSVs were successfully imported into the pandas dataframe; proceeding to creating objects for each individual.")
 
-# conduct chi-square test for association
-chi2observed=[[gene_results.count("insignificant"),gene_results.count("statistically significant"),gene_results.count("highly statistically significant")],
-        [env_results.count("insignificant"),env_results.count("statistically significant"),env_results.count("highly statistically significant")]]
-print("Here are the observed frequencies of each type of result for family members and friends, respectively:")
-print(chi2observed)
-X2,p,df,ex=chi2_contingency(chi2observed)
-print("Here are the expected frequencies of each type of result for family members and friends, respectively:")
-print(ex)
-print("The result of the Chi-Square Test for Association is test statistic X^2 = {}, which gives us a p-value of {} with {} degrees of freedom.".format(X2,p,df))
+    # add a student/family object for each row in the dataframe
+    for row in range(students.shape[0]):
+        studs.append(student(row)) #create students
+    for row in range(families.shape[0]):
+        fams.append(family(row)) #create family
 
+    print("Student/Family objects were successfully created; running statistical tests to check the integrity of each individual's data.")
+    genetic,environmental=wc(studs, fams); #run basic tests 
+    print("Here are the results of the Wilcoxon Tests for the family members:")
+    print(genetic)
+    print("Here are the results of the Wilcoxon Tests for the friends:")
+    print(environmental)
+    print("Here is the most common result of the tests for the family members:")
+    print(multimode(genetic))
+    print("Here is the most common result of the tests for the friends:")
+    print(multimode(environmental))
+
+    chi2(genetic, environmental)
+    if p>0.5:
+        print("WARNING: There is not a statistically significant association between relationship type and similarity of music choice. Following results may be very unreliable.")
+    correlation_regression(studs,fams)
+
+if __name__=="__main__":
+    from scipy.stats import wilcoxon,chi2_contingency #needed for statistical testing
+    from statistics import multimode #needed for descriptive statistics
+    from people import * #needed dataframes & classes from ./people.py   
+    main()
