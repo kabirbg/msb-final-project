@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from pandas import read_csv #necessary for importing csv data as a pandas dataframe
 students=read_csv("private/Students.csv") #initialize dataframe for students
 families=read_csv("private/Family Members.csv") #and one for families
