@@ -42,7 +42,7 @@ def wc(studs, fams):
 
     return (fam_results, friend_results)
 
-def chi2(group1, group1):
+def chi2(group1, group2):
     # conduct chi-square test for association
     chi2observed=[[group1.count("insignificant"),group1.count("statistically significant"),group1.count("highly statistically significant")],
             [group2.count("insignificant"),group2.count("statistically significant"),group2.count("highly statistically significant")]]
@@ -54,8 +54,42 @@ def chi2(group1, group1):
     print("The result of the Chi-Square Test for Association is test statistic X^2 = {} with {} degrees of freedom, which gives us a p-value of {}.".format(X2,df,p))
     return p
 
-def correlation_regression(students,families):
-    #TODO: WORK ON THIS!
+def srcc(students,families):
+    famccs=[]
+    friendccs=[]
+    for genre in range(6):#
+        studentranks=[]
+        famranks=[]
+        friendranks=[]
+        for student in students:
+            studentranks.append(student.ranks[genre])
+            for row in range(len(studs)):
+                if student.fam[0]==fams[row].name:
+                    fam0=studs[row]
+                if student.fam[1]==fams[row].first and student.friend2last==studs[row].last:
+                    fam1=studs[row]
+                if student.friends[0]==studs[row].name:
+                    friend0=studs[row]
+                if student.friends[1]==studs[row].first and student.friend2last==studs[row].last:
+                    friend1=studs[row]
+            fam=(fam0.ranks[genre]+fam1.ranks[genre])/2 #median not mean
+            friend=(friend0.ranks[genre]+friend1.ranks[genre])/2 #median again
+            famranks.append(fam)
+            friendranks.append(friend)
+
+        print("The student ranks for Genre #%i were: "%genre, end="")
+        print(studentranks)
+        print("The family ranks for Genre #%i were: "%genre, end="")
+        print(famranks)
+        print("The friend ranks for Genre #%i were: "%genre, end="")
+        print(friendranks)
+
+        r,p=spearmanr(studentranks,famranks)
+        print("The correlation coefficient between students and family members for Genre #%i was %%2.5f (p=%2.5f)"%(genre,r,p))
+        famccs.append(r,p)
+        r,p=spearmanr(studentranks,friend)
+        print("The correlation coefficient between students and friends for Genre #%i was %%2.5f (p=%2.5f)"%(genre,r,p))
+        friendccs.append(r,p)
 
 def main():
     #create lists to hold student and family objects:
@@ -85,10 +119,10 @@ def main():
     chi2(genetic, environmental)
     if p>0.5:
         print("WARNING: There is not a statistically significant association between relationship type and similarity of music choice. Following results may be very unreliable.")
-    correlation_regression(studs,fams)
+    srcc(studs,fams)
 
 if __name__=="__main__":
-    from scipy.stats import wilcoxon,chi2_contingency #needed for statistical testing
+    from scipy.stats import wilcoxon,chi2_contingency,spearmanr #needed for statistical testing
     from statistics import multimode #needed for descriptive statistics
     from people import * #needed dataframes & classes from ./people.py   
     main()
