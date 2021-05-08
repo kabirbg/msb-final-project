@@ -54,9 +54,9 @@ class family:#I'll have one object of this type for each participating family me
         print("\n")
 
     def __init__(self, row):
-        self.name=[students.iat[row,0],students.iat[row,1]]
-        genres=students.iat[row,2]
-        musics=[students.iat[row,3],students.iat[row,4],students.iat[row,5],students.iat[row,6],students.iat[row,7],students.iat[row,8],students.iat[row,9],students.iat[row,10],students.iat[row,11],students.iat[row,12],students.iat[row,13],students.iat[row,14]]
+        self.name=[families.iat[row,0],families.iat[row,1]]
+        genres=families.iat[row,2]
+        musics=[families.iat[row,3],families.iat[row,4],families.iat[row,5],families.iat[row,6],families.iat[row,7],families.iat[row,8],families.iat[row,9],families.iat[row,10],families.iat[row,11],families.iat[row,12],families.iat[row,13],families.iat[row,14]]
         for genre in range(6):
             if str(genre) in genres:
                 if musics[genre*2-1]==1 and musics[genre*2]==1:
