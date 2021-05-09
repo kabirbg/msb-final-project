@@ -2,7 +2,7 @@
 
 from pandas import read_csv #necessary for importing csv data as a pandas dataframe
 students=read_csv("private/Students.csv") #initialize dataframe for students
-families=read_csv("private/Family Members.csv") #and one for families
+families=read_csv("private/Family.csv") #and one for families
 
 class student:#I'll have one object of this type for each participating student
     name=()#holds first and last name
