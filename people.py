@@ -5,7 +5,7 @@ students=read_csv("private/Students.csv") #initialize dataframe for students
 families=read_csv("private/Family Members.csv") #and one for families
 
 class student:#I'll have one object of this type for each participating student
-    name=[]#holds first and last name
+    name=()#holds first and last name
     fam=[]#holds family members' names
     friends=[]#holds friends' names
     ranks=[-1,-1,-1,-1,-1,-1]#holds ordinal rankings for each genre
@@ -19,7 +19,7 @@ class student:#I'll have one object of this type for each participating student
 
     def __init__(self, row):
         #basic info
-        self.name=[students.iat[row,0],students.iat[row,1]] #name (last,first) is a list
+        self.name=(students.iat[row,0],students.iat[row,1]) #name (last,first) is a list
         self.fam=[(students.iat[row,15],students.iat[row,16]),(students.iat[row,17],students.iat[row,18])]#each family member occupies a list similar to above; fam contains both lists
         self.friends=[(students.iat[row,19],students.iat[row,20]),(students.iat[row,21],students.iat[row,22])]#same as above, for friends
         #generate & store rankings
@@ -53,7 +53,7 @@ class family:#I'll have one object of this type for each participating family me
         print("\n")
 
     def __init__(self, row):
-        self.name=[families.iat[row,0],families.iat[row,1]]
+        self.name=(families.iat[row,0],families.iat[row,1])
         genres=families.iat[row,2]
         musics=[families.iat[row,3],families.iat[row,4],families.iat[row,5],families.iat[row,6],families.iat[row,7],families.iat[row,8],families.iat[row,9],families.iat[row,10],families.iat[row,11],families.iat[row,12],families.iat[row,13],families.iat[row,14]]
         for genre in range(6):
