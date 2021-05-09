@@ -12,30 +12,50 @@ def wc(studs, fams):
         for row in range(len(studs)):
             if student.friends[0]==studs[row].name:
                 friend0=studs[row]
-            if student.friends[1]==studs[row].first and student.friend2last==studs[row].last:
+            if student.friends[1]==studs[row].name:
                 friend1=studs[row]
+        for row in range(len(fams)):
             if student.fam[0]==fams[row].name:
-                fam0=studs[row]
-            if student.fam[1]==fams[row].first and student.friend2last==studs[row].last:
-                fam1=studs[row]
-
-        # run tests between student and each family member
-        for person in (fam1, fam2):
-            w,p = wilcoxon(student.ranks,person.ranks)
-            print("The Wilcoxon test statistic between {} {} and {} {} (family member) is W={} (p={}).".format(student.name[1],student.name[0],person.name[1],person.name[0],w,p))
-            if p<0.1:
+                fam0=fams[row]
+            if student.fam[1]==fams[row].name:
+                fam1=fams[row]
+        if "fam0" in locals(): #fam0 exists
+            # run tests between student and family member 0
+            w,p = wilcoxon(student.ranks,fam0.ranks,zero_method="zsplit")
+            print("The Wilcoxon test statistic between {} {} and {} {} (family member) is W={} (p={}).".format(student.name[1],student.name[0],fam0.name[1],fam0.name[0],w,p))
+            if p<0.01:
                 fam_results.append("highly statistically significant")
-            elif p<0.5:
+            elif p<0.05:
                 fam_results.append("statistically significant")
             else:
                 fam_results.append("insignificant")
-        #run tests between student and each friend
-        for person in (friend1, friend2):
-            w,p = wilcoxon(student.ranks,person.ranks)
-            print("The Wilcoxon test statistic between {} {} and {} {} (friend) is W={} (p={}).".format(student.name[1],student.name[0],person.name[1],person.name[0],w,p))
-            if p<0.1:
+        if "fam1" in locals(): #fam1 exists
+            # run tests between student and family member 1
+            w,p = wilcoxon(student.ranks,fam1.ranks,zero_method="zsplit")
+            print("The Wilcoxon test statistic between {} {} and {} {} (family member) is W={} (p={}).".format(student.name[1],student.name[0],fam1.name[1],fam1.name[0],w,p))
+            if p<0.01:
+                fam_results.append("highly statistically significant")
+            elif p<0.05:
+                fam_results.append("statistically significant")
+            else:
+                fam_results.append("insignificant")
+        if "friend0" in locals(): #friend0 exists
+            #run tests between student and friend 0
+            w,p = wilcoxon(student.ranks,friend0.ranks,zero_method="zsplit")
+            print("The Wilcoxon test statistic between {} {} and {} {} (friend) is W={} (p={}).".format(student.name[1],student.name[0],friend0.name[1],friend0.name[0],w,p))
+            if p<0.01:
                 friend_results.append("highly statistically significant")
-            elif p<0.5:
+            elif p<0.05:
+                friend_results.append("statistically significant")
+            else:
+                friend_results.append("insignificant")
+        if "friend1" in locals(): #friend1 exists
+            #run tests between student and friend 1
+            w,p = wilcoxon(student.ranks,friend1.ranks,zero_method="zsplit")
+            print("The Wilcoxon test statistic between {} {} and {} {} (friend) is W={} (p={}).".format(student.name[1],student.name[0],friend1.name[1],friend1.name[0],w,p))
+            if p<0.01:
+                friend_results.append("highly statistically significant")
+            elif p<0.05:
                 friend_results.append("statistically significant")
             else:
                 friend_results.append("insignificant")
@@ -66,11 +86,11 @@ def srcc(students,families):
             for row in range(len(studs)):
                 if student.fam[0]==fams[row].name:
                     fam0=studs[row]
-                if student.fam[1]==fams[row].first and student.friend2last==studs[row].last:
+                if student.fam[1]==fams[row].name:
                     fam1=studs[row]
                 if student.friends[0]==studs[row].name:
                     friend0=studs[row]
-                if student.friends[1]==studs[row].first and student.friend2last==studs[row].last:
+                if student.friends[1]==studs[row].name:
                     friend1=studs[row]
             fam=(fam0.ranks[genre]+fam1.ranks[genre])/2 #median not mean
             friend=(friend0.ranks[genre]+friend1.ranks[genre])/2 #median again
@@ -105,8 +125,8 @@ def main():
     for row in range(families.shape[0]):
         fams.append(family(row)) #create family
 
-    print("Student/Family objects were successfully created; running statistical tests to check the integrity of each individual's data.")
-    genetic,environmental=wc(studs, fams); #run basic tests 
+    print("Student/Family objects were successfully created; running Wilcoxon tests between each individual and their friends/family members.")
+    genetic,environmental=wc(studs, fams); #run wilcoxon tests 
     print("Here are the results of the Wilcoxon Tests for the family members:")
     print(genetic)
     print("Here are the results of the Wilcoxon Tests for the friends:")
@@ -124,5 +144,5 @@ def main():
 if __name__=="__main__":
     from scipy.stats import wilcoxon,chi2_contingency,spearmanr #needed for statistical testing
     from statistics import multimode #needed for descriptive statistics
-    from people import * #needed dataframes & classes from ./people.py   
+    from people import * #needed dataframes & classes from ./people.py
     main()
