@@ -1,7 +1,11 @@
 #!/bin/bash
 for csv in private/*.csv; do
-        if [ "$(head -n1 < Family.csv | awk '{print $1}')" == "Timestamp" ]; then
-                gawk -i inplace -F "\"*,\"*" '{$1="";print $0}' private/Family.csv && echo Removed timestamps from $csv
+        if [ "$(head -n1 < $csv | cut -d , -f 1)" == "Timestamp" ]; then
+                cp $csv $csv.old #make backup
+                cut -d , -f 2- <$csv.old >$csv
+                rm $csv.old #rm backup
+                sed -i '' 's///g' $csv #remove carriage return chars
+                echo Removed timestamps from $csv
         fi
         sed -i '' 's/Pop/1/g' $csv && echo replaced 'pop' with '1' in $csv
         sed -I '' 's/Jazz\/Blues/2/g' $csv && echo replaced 'jazz/blues' with '2' in $csv
