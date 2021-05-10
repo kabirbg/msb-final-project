@@ -4,7 +4,6 @@ for csv in private/*.csv; do
                 cp $csv $csv.old #make backup
                 cut -d , -f 2- <$csv.old >$csv
                 rm $csv.old #rm backup
-                sed -i '' 's///g' $csv #remove carriage return chars
                 echo Removed timestamps from $csv
         fi
         sed -i '' 's/Pop/1/g' $csv && echo replaced 'pop' with '1' in $csv
