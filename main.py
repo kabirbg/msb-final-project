@@ -32,40 +32,40 @@ def wc(studs, fams):
             # run tests between student and family member 0
             w,p = wilcoxon(student.ranks,fam0.ranks,zero_method="zsplit")
             print("The Wilcoxon test statistic between {} {} and {} {} (family member) is W={} (p={}).".format(student.name[1],student.name[0],fam0.name[1],fam0.name[0],w,p))
-            if p<0.01:
-                fam_results.append("highly statistically significant")
-            elif p<0.05:
+            if p<0.05:
                 fam_results.append("statistically significant")
+            elif p<0.1:
+                fam_results.append("significant @ 10%")
             else:
                 fam_results.append("insignificant")
         if fam1!='': #fam1 exists
             # run tests between student and family member 1
             w,p = wilcoxon(student.ranks,fam1.ranks,zero_method="zsplit")
             print("The Wilcoxon test statistic between {} {} and {} {} (family member) is W={} (p={}).".format(student.name[1],student.name[0],fam1.name[1],fam1.name[0],w,p))
-            if p<0.01:
-                fam_results.append("highly statistically significant")
-            elif p<0.05:
+            if p<0.05:
                 fam_results.append("statistically significant")
+            elif p<0.10:
+                fam_results.append("significant @ 10%")
             else:
                 fam_results.append("insignificant")
         if friend0!='': #friend0 exists
             #run tests between student and friend 0
             w,p = wilcoxon(student.ranks,friend0.ranks,zero_method="zsplit")
             print("The Wilcoxon test statistic between {} {} and {} {} (friend) is W={} (p={}).".format(student.name[1],student.name[0],friend0.name[1],friend0.name[0],w,p))
-            if p<0.01:
-                friend_results.append("highly statistically significant")
-            elif p<0.05:
+            if p<0.05:
                 friend_results.append("statistically significant")
+            elif p<0.10:
+                friend_results.append("significant @ 10%")
             else:
                 friend_results.append("insignificant")
         if friend1!='': #friend1 exists
             #run tests between student and friend 1
             w,p = wilcoxon(student.ranks,friend1.ranks,zero_method="zsplit")
             print("The Wilcoxon test statistic between {} {} and {} {} (friend) is W={} (p={}).".format(student.name[1],student.name[0],friend1.name[1],friend1.name[0],w,p))
-            if p<0.01:
-                friend_results.append("highly statistically significant")
-            elif p<0.05:
+            if p<0.05:
                 friend_results.append("statistically significant")
+            elif p<0.10:
+                friend_results.append("significant @ 10%")
             else:
                 friend_results.append("insignificant")
 
