@@ -15,7 +15,6 @@ class student:#I'll have one object of this type for each participating student
         print(self.ranks)
         print(self.fam)
         print(self.friends)
-        print("\n")
 
     def __init__(self, row):
         #basic info
@@ -50,7 +49,6 @@ class family:#I'll have one object of this type for each participating family me
     def display(self):
         print(self.name)
         print(self.ranks)
-        print("\n")
 
     def __init__(self, row):
         self.name=(families.iat[row,0],families.iat[row,1])
