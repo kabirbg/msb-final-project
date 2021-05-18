@@ -55,7 +55,7 @@ class family:#I'll have one object of this type for each participating family me
         genres=families.iat[row,2]
         musics=[families.iat[row,3],families.iat[row,4],families.iat[row,5],families.iat[row,6],families.iat[row,7],families.iat[row,8],families.iat[row,9],families.iat[row,10],families.iat[row,11],families.iat[row,12],families.iat[row,13],families.iat[row,14]]
         for genre in range(6):
-            if str(genre) in genres:
+            if str(genre+1) in genres:
                 if musics[genre*2-1]==1 and musics[genre*2]==1:
                     self.ranks[genre-1]=5
                 elif musics[genre*2-1]==1 or musics[genre*2]==1:
