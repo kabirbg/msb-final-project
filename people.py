@@ -5,7 +5,7 @@ from pandas import read_csv  # necessary for importing csv data as a pandas data
 students = read_csv("private/Students.csv")  # initialize dataframe for students
 families = read_csv("private/Family.csv")  # and one for families
 
-class student:  # I'll have one object of this type for each participating student
+class student:
     name = ()  # holds first and last name
     fam = []  # holds family members' names
     friends = []  # holds friends' names
@@ -55,27 +55,12 @@ class student:  # I'll have one object of this type for each participating stude
         # Each genre is represented by a number (1=pop, 2=jazz & blues, etc).
         for genre in range(1, 7):
             if str(genre) in genres:  # liked the genre
-                if (
-                    musics[genre * 2 - 2] == 1 and musics[genre * 2 - 1] == 1
-                ):  # liked both musics
-                    self.ranks[genre - 1] = 5
-                elif (
-                    musics[genre * 2 - 2] == 1 or musics[genre * 2 - 1] == 1
-                ):  # liked one music
-                    self.ranks[genre - 1] = 4
-                else:  # liked none
-                    self.ranks[genre - 1] = 3
+                self.ranks[genre - 1] = 3 \
+                                      + musics[genre * 2 - 2] \
+                                      + musics[genre * 2 - 1]
             else:  # disliked the genre
-                if (
-                    musics[genre * 2 - 2] == 1 and musics[genre * 2 - 1] == 1
-                ):  # liked both musics
-                    self.ranks[genre - 1] = 2
-                elif (
-                    musics[genre * 2 - 2] == 1 or musics[genre * 2 - 1] == 1
-                ):  # liked one music
-                    self.ranks[genre - 1] = 1
-                else:  # liked none
-                    self.ranks[genre - 1] = 0
+                self.ranks[genre - 1] = musics[genre * 2 - 2] \
+                                      + musics[genre * 2 - 1]
 
 
 class family:  # I'll have one object of this type for each participating family member; identical to Student but lacks fam[] and friends[]
@@ -119,4 +104,5 @@ class family:  # I'll have one object of this type for each participating family
                     self.ranks[genre - 1] = 0
 
 def student_at_row(n: int) -> student:
-    return student(students.iloc[n].values.flatten().tolist())
+    row = [student for student in students.iloc[n]]
+    return student(row)
