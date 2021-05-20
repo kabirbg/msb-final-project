@@ -5,7 +5,6 @@ from pandas import read_csv  # necessary for importing csv data as a pandas data
 students = read_csv("private/Students.csv")  # initialize dataframe for students
 families = read_csv("private/Family.csv")  # and one for families
 
-
 class student:  # I'll have one object of this type for each participating student
     name = ()  # holds first and last name
     fam = []  # holds family members' names
@@ -15,35 +14,40 @@ class student:  # I'll have one object of this type for each participating stude
     def __str__(self):
         return str(self.name) + "\n" + str(self.ranks) + "\n" + str(self.fam) + "\n" + str(self.friends)
 
+    # Construct a Student from a row of data. This row is expected to be laid
+    # out in (first name, last name, ...  musics ..., family member a first name,
+    # family member a last name, family number b first name, family number b
+    # last name, friend a first name, frined a last name, friend b first name,
+    # friend b last name.
     def __init__(self, row):
         # basic info
         self.name = (
-            students.iat[row, 0],
-            students.iat[row, 1],
+            row[0],
+            row[1],
         )  # name (last,first) is a list
         self.fam = [
-            (students.iat[row, 15], students.iat[row, 16]),
-            (students.iat[row, 17], students.iat[row, 18]),
+            (row[15], row[16]),
+            (row[17], row[18]),
         ]  # each family member occupies a list similar to above; fam contains both lists
         self.friends = [
-            (students.iat[row, 19], students.iat[row, 20]),
-            (students.iat[row, 21], students.iat[row, 22]),
+            (row[19], row[20]),
+            (row[21], row[22]),
         ]  # same as above, for friends
         # generate & store rankings
-        genres = students.iat[row, 2]  # temporarily store genre selections
+        genres = row[2]  # temporarily store genre selections
         musics = [
-            students.iat[row, 3],
-            students.iat[row, 4],
-            students.iat[row, 5],
-            students.iat[row, 6],
-            students.iat[row, 7],
-            students.iat[row, 8],
-            students.iat[row, 9],
-            students.iat[row, 10],
-            students.iat[row, 11],
-            students.iat[row, 12],
-            students.iat[row, 13],
-            students.iat[row, 14],
+            row[3],
+            row[4],
+            row[5],
+            row[6],
+            row[7],
+            row[8],
+            row[9],
+            row[10],
+            row[11],
+            row[12],
+            row[13],
+            row[14],
         ]  # temporarily store song selections
         for genre in range(
             1, 7
@@ -112,3 +116,6 @@ class family:  # I'll have one object of this type for each participating family
                     self.ranks[genre - 1] = 1
                 else:
                     self.ranks[genre - 1] = 0
+
+def student_at_row(n: int) -> student:
+    return student(students.iloc[n].values.flatten().tolist())

@@ -256,7 +256,7 @@ def main():
     print(students.shape[0])  # prints 76
     for row in range(students.shape[0]):
         print(row)
-        studs.append(student(row))  # create students
+        studs.append(student_at_row(row))  # create students
         print(studs[row])
         if len(studs) != 1:
             print(studs[row - 1])
