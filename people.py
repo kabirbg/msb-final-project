@@ -53,13 +53,15 @@ class Student:
 
 
 class Family:  # I'll have one object of this type for each participating family member; identical to Student but lacks fam[] and friends[]
-    name = ()  # holds first and last name
-    ranks = [-1, -1, -1, -1, -1, -1]  # holds ordinal rankings for each genre
-
     def __str__(self):
         return str(self.name) + "\n" + str(self.ranks) + "\n" + str(self.fam) + "\n" + str(self.friends)
 
-    # Construct a Family from a row of data. This row is expected to be laid
+    @classmethod
+    def at_row(cls, n: int):
+        row = [student for student in students.iloc[n]]
+        return cls(row)
+
+    # Construct a Student from a row of data. This row is expected to be laid
     # out in (first name, last name, ...  musics ..., family member a first name,
     # family member a last name, family number b first name, family number b
     # last name, friend a first name, friend a last name, friend b first name,
@@ -69,6 +71,18 @@ class Family:  # I'll have one object of this type for each participating family
             row[0],
             row[1],
         )
+
+        self.fam = [
+            (row[15], row[16]),
+            (row[17], row[18]),
+        ]
+
+        self.friends = [
+            (row[19], row[20]),
+            (row[21], row[22]),
+        ]
+
+        self.ranks = [-1 for n in range(1, 7)]
 
         # generate & store rankings
         genres = row[2]  # temporarily store genre selections
@@ -83,4 +97,3 @@ class Family:  # I'll have one object of this type for each participating family
             else:  # disliked the genre
                 self.ranks[genre - 1] = musics[genre * 2 - 2] \
                                       + musics[genre * 2 - 1]
-

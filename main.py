@@ -58,7 +58,7 @@ def wc(studs, fams):
                 elif p < 0.1:
                     fam_results.append("significant @ 10%")
                 else:
-                    fam_results.append(p)  # "insignificant")
+                    fam_results.append("insignificant")
         if fam1 != "":  # fam1 exists
             # run tests between student and family member 1
             print(student.ranks)
@@ -87,7 +87,7 @@ def wc(studs, fams):
                 elif p < 0.10:
                     fam_results.append("significant @ 10%")
                 else:
-                    fam_results.append(p)  # "insignificant")
+                    fam_results.append("insignificant")
         if friend0 != "":  # friend0 exists
             # run tests between student and friend 0
             print(student.ranks)
@@ -119,7 +119,7 @@ def wc(studs, fams):
                 elif p < 0.10:
                     friend_results.append("significant @ 10%")
                 else:
-                    friend_results.append(p)  # "insignificant")
+                    friend_results.append("insignificant")
         if friend1 != "":  # friend1 exists
             # run tests between student and friend 1
             print(student.ranks)
@@ -151,7 +151,7 @@ def wc(studs, fams):
                 elif p < 0.10:
                     friend_results.append("significant @ 10%")
                 else:
-                    friend_results.append(p)  # "insignificant")
+                    friend_results.append("insignificant")
 
     return (fam_results, friend_results)
 
@@ -253,18 +253,10 @@ def main():
     )
 
     # add a student/family object for each row in the dataframe
-    print(students.shape[0])  # prints 76
     for row in range(students.shape[0]):
-        print(row)
         studs.append(Student.at_row(row))  # create students
-        print(studs[row])
-        if len(studs) != 1:
-            print(studs[row - 1])
-    for row in studs:
-        print(row.ranks)
     for row in range(families.shape[0]):
-        fams.append(family(row))  # create family
-
+        fams.append(Family.at_row(row))  # create family
     print(
         "Student/Family objects were successfully created; running Wilcoxon tests between each individual and their friends/family members."
     )
