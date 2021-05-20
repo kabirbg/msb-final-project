@@ -204,25 +204,25 @@ def srcc(students, families):
             else:
                 studentranksb.remove(student.ranks[genre])
 
-        print("The student ranks (x1) for Genre #%i were: " % (genre+1), end="")
+        print("The student ranks (x1) for Genre #%i were: " % (genre + 1), end="")
         print(studentranksa)
-        print("The family ranks (y1) for Genre #%i were: " % (genre+1), end="")
+        print("The family ranks (y1) for Genre #%i were: " % (genre + 1), end="")
         print(famranks)
-        print("The student ranks (x2) for Genre #%i were: " % (genre+1), end="")
+        print("The student ranks (x2) for Genre #%i were: " % (genre + 1), end="")
         print(studentranksb)
-        print("The friend ranks (y2) for Genre #%i were: " % (genre+1), end="")
+        print("The friend ranks (y2) for Genre #%i were: " % (genre + 1), end="")
         print(friendranks)
 
         r, p = spearmanr(studentranksa, famranks)
         print(
             "The correlation coefficient between students and family members for Genre #%i was %2.5f (p=%2.5f)"
-            % ((genre+1), r, p)
+            % ((genre + 1), r, p)
         )
         famccs.append(r)
         r, p = spearmanr(studentranksb, friendranks)
         print(
             "The correlation coefficient between students and friends for Genre #%i was %2.5f (p=%2.5f)"
-            % ((genre+1), r, p)
+            % ((genre + 1), r, p)
         )
         friendccs.append(r)
 
