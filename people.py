@@ -37,20 +37,7 @@ class student:
 
         # generate & store rankings
         genres = row[2]  # temporarily store genre selections
-        musics = [
-            row[3],
-            row[4],
-            row[5],
-            row[6],
-            row[7],
-            row[8],
-            row[9],
-            row[10],
-            row[11],
-            row[12],
-            row[13],
-            row[14],
-        ]  # temporarily store song selections
+        musics = [row[n] for n in range(3, 15)]
 
         # Each genre is represented by a number (1=pop, 2=jazz & blues, etc).
         for genre in range(1, 7):
