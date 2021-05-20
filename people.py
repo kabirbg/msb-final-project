@@ -20,19 +20,21 @@ class student:  # I'll have one object of this type for each participating stude
     # last name, friend a first name, frined a last name, friend b first name,
     # friend b last name.
     def __init__(self, row):
-        # basic info
         self.name = (
             row[0],
             row[1],
-        )  # name (last,first) is a list
+        )
+
         self.fam = [
             (row[15], row[16]),
             (row[17], row[18]),
-        ]  # each family member occupies a list similar to above; fam contains both lists
+        ]
+
         self.friends = [
             (row[19], row[20]),
             (row[21], row[22]),
-        ]  # same as above, for friends
+        ]
+
         # generate & store rankings
         genres = row[2]  # temporarily store genre selections
         musics = [
@@ -49,10 +51,9 @@ class student:  # I'll have one object of this type for each participating stude
             row[13],
             row[14],
         ]  # temporarily store song selections
-        for genre in range(
-            1, 7
-        ):  # each number represents a genre (1=pop, 2=jazz & blues, and so on)
-            # assign rank system based on flowchart:
+
+        # Each genre is represented by a number (1=pop, 2=jazz & blues, etc).
+        for genre in range(1, 7):
             if str(genre) in genres:  # liked the genre
                 if (
                     musics[genre * 2 - 2] == 1 and musics[genre * 2 - 1] == 1
