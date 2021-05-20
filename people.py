@@ -13,7 +13,7 @@ class student:  # I'll have one object of this type for each participating stude
     ranks = [-1, -1, -1, -1, -1, -1]  # holds ordinal rankings for each genre
 
     def __str__(self):
-        return self.name + "\n" + self.ranks + "\n" + self.fam + "\n" + self.friends
+        return str(self.name) + "\n" + str(self.ranks) + "\n" + str(self.fam) + "\n" + str(self.friends)
 
     def __init__(self, row):
         # basic info
@@ -77,9 +77,8 @@ class family:  # I'll have one object of this type for each participating family
     name = []
     ranks = [-1, -1, -1, -1, -1, -1]
 
-    def display(self):
-        print(self.name)
-        print(self.ranks)
+    def __str__(self):
+        return str(self.name) + "\n" + str(self.ranks) + "\n" + str(self.fam) + "\n" + str(self.friends)
 
     def __init__(self, row):
         self.name = (families.iat[row, 0], families.iat[row, 1])

@@ -257,9 +257,9 @@ def main():
     for row in range(students.shape[0]):
         print(row)
         studs.append(student(row))  # create students
-        studs[row].display()
+        print(studs[row])
         if len(studs) != 1:
-            studs[row - 1].display()
+            print(studs[row - 1])
     for row in studs:
         print(row.ranks)
     for row in range(families.shape[0]):
