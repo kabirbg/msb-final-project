@@ -10,11 +10,8 @@ class student:#I'll have one object of this type for each participating student
     friends=[]#holds friends' names
     ranks=[-1,-1,-1,-1,-1,-1]#holds ordinal rankings for each genre
 
-    def display(self):
-        print(self.name)
-        print(self.ranks)
-        print(self.fam)
-        print(self.friends)
+    def __str__(self):
+        return self.name + '\n' + self.ranks + '\n' + self.fam + '\n' + self.friends
 
     def __init__(self, row):
         #basic info
