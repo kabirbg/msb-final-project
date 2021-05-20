@@ -6,11 +6,6 @@ students = read_csv("private/Students.csv")  # initialize dataframe for students
 families = read_csv("private/Family.csv")  # and one for families
 
 class Student:
-    name = ()  # holds first and last name
-    fam = []  # holds family members' names
-    friends = []  # holds friends' names
-    ranks = [-1, -1, -1, -1, -1, -1]  # holds ordinal rankings for each genre
-
     def __str__(self):
         return str(self.name) + "\n" + str(self.ranks) + "\n" + str(self.fam) + "\n" + str(self.friends)
 
@@ -39,6 +34,8 @@ class Student:
             (row[19], row[20]),
             (row[21], row[22]),
         ]
+
+        self.ranks = [-1 for n in range(1, 7)]
 
         # generate & store rankings
         genres = row[2]  # temporarily store genre selections
