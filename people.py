@@ -14,6 +14,11 @@ class Student:
     def __str__(self):
         return str(self.name) + "\n" + str(self.ranks) + "\n" + str(self.fam) + "\n" + str(self.friends)
 
+    @classmethod
+    def at_row(cls, n: int):
+        row = [student for student in students.iloc[n]]
+        return cls(row)
+
     # Construct a Student from a row of data. This row is expected to be laid
     # out in (first name, last name, ...  musics ..., family member a first name,
     # family member a last name, family number b first name, family number b
@@ -82,6 +87,3 @@ class Family:  # I'll have one object of this type for each participating family
                 self.ranks[genre - 1] = musics[genre * 2 - 2] \
                                       + musics[genre * 2 - 1]
 
-def student_at_row(n: int) -> Student:
-    row = [student for student in students.iloc[n]]
-    return Student(row)
