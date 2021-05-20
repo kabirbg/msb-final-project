@@ -16,7 +16,7 @@ def findmatches(student,studs,fams):
             fam0=family
         if student.fam[1]==family.name:
             fam1=family
-    return fam0,fam1,friend0,friend1
+    return (fam0,fam1,friend0,friend1)
 
 def wc(studs, fams):
     #initialize arrays to hold the results of the WC tests
@@ -30,44 +30,68 @@ def wc(studs, fams):
 
         if fam0!='': #fam0 exists
             # run tests between student and family member 0
-            w,p = wilcoxon(student.ranks,fam0.ranks,zero_method="zsplit")
-            print("The Wilcoxon test statistic between {} {} and {} {} (family member) is W={} (p={}).".format(student.name[1],student.name[0],fam0.name[1],fam0.name[0],w,p))
-            if p<0.05:
-                fam_results.append("statistically significant")
-            elif p<0.1:
-                fam_results.append("significant @ 10%")
-            else:
+            print(student.ranks)
+            print(fam0.ranks)
+            if student.ranks==fam0.ranks:
+                print("{} {} and {} {} (family member) have the same rankings. The result is hence insignificant.".format(student.name[1],student.name[0],fam0.name[1],fam0.name[0]))
                 fam_results.append("insignificant")
+            else:
+                w,p = wilcoxon(student.ranks,fam0.ranks)
+                print("The Wilcoxon test statistic between {} {} and {} {} (family member) is W={} (p={}).".format(student.name[1],student.name[0],fam0.name[1],fam0.name[0],w,p))
+                if p<0.05:
+                    fam_results.append("statistically significant")
+                elif p<0.1:
+                    fam_results.append("significant @ 10%")
+                else:
+                    fam_results.append(p)#"insignificant")
         if fam1!='': #fam1 exists
             # run tests between student and family member 1
-            w,p = wilcoxon(student.ranks,fam1.ranks,zero_method="zsplit")
-            print("The Wilcoxon test statistic between {} {} and {} {} (family member) is W={} (p={}).".format(student.name[1],student.name[0],fam1.name[1],fam1.name[0],w,p))
-            if p<0.05:
-                fam_results.append("statistically significant")
-            elif p<0.10:
-                fam_results.append("significant @ 10%")
-            else:
+            print(student.ranks)
+            print(fam1.ranks)
+            if student.ranks==fam1.ranks:
+                print("{} {} and {} {} (family member) have the same rankings. The result is hence insignificant.".format(student.name[1],student.name[0],fam1.name[1],fam1.name[0]))
                 fam_results.append("insignificant")
+            else:
+                w,p = wilcoxon(student.ranks,fam1.ranks)
+                print("The Wilcoxon test statistic between {} {} and {} {} (family member) is W={} (p={}).".format(student.name[1],student.name[0],fam1.name[1],fam1.name[0],w,p))
+                if p<0.05:
+                    fam_results.append("statistically significant")
+                elif p<0.10:
+                    fam_results.append("significant @ 10%")
+                else:
+                    fam_results.append(p)#"insignificant")
         if friend0!='': #friend0 exists
             #run tests between student and friend 0
-            w,p = wilcoxon(student.ranks,friend0.ranks,zero_method="zsplit")
-            print("The Wilcoxon test statistic between {} {} and {} {} (friend) is W={} (p={}).".format(student.name[1],student.name[0],friend0.name[1],friend0.name[0],w,p))
-            if p<0.05:
-                friend_results.append("statistically significant")
-            elif p<0.10:
-                friend_results.append("significant @ 10%")
-            else:
+            print(student.ranks)
+            print(friend0.ranks)
+            if student.ranks==friend0.ranks:
+                print("{} {} and {} {} (friend) have the same rankings. The result is hence insignificant.".format(student.name[1],student.name[0],friend0.name[1],friend0.name[0]))
                 friend_results.append("insignificant")
+            else:
+                w,p = wilcoxon(student.ranks,friend0.ranks)
+                print("The Wilcoxon test statistic between {} {} and {} {} (friend) is W={} (p={}).".format(student.name[1],student.name[0],friend0.name[1],friend0.name[0],w,p))
+                if p<0.05:
+                    friend_results.append("statistically significant")
+                elif p<0.10:
+                    friend_results.append("significant @ 10%")            
+                else:
+                    friend_results.append(p)#"insignificant")
         if friend1!='': #friend1 exists
             #run tests between student and friend 1
-            w,p = wilcoxon(student.ranks,friend1.ranks,zero_method="zsplit")
-            print("The Wilcoxon test statistic between {} {} and {} {} (friend) is W={} (p={}).".format(student.name[1],student.name[0],friend1.name[1],friend1.name[0],w,p))
-            if p<0.05:
-                friend_results.append("statistically significant")
-            elif p<0.10:
-                friend_results.append("significant @ 10%")
-            else:
+            print(student.ranks)
+            print(friend1.ranks)
+            if student.ranks==friend1.ranks:
+                print("{} {} and {} {} (friend) have the same rankings. The result is hence insignificant.".format(student.name[1],student.name[0],friend1.name[1],friend1.name[0]))
                 friend_results.append("insignificant")
+            else:
+                w,p = wilcoxon(student.ranks,friend1.ranks)
+                print("The Wilcoxon test statistic between {} {} and {} {} (friend) is W={} (p={}).".format(student.name[1],student.name[0],friend1.name[1],friend1.name[0],w,p))
+                if p<0.05:
+                    friend_results.append("statistically significant")
+                elif p<0.10:
+                    friend_results.append("significant @ 10%")
+                else:
+                    friend_results.append(p)#"insignificant")
 
     return (fam_results, friend_results)
 
@@ -138,8 +162,15 @@ def main():
     print("CSVs were successfully imported into the pandas dataframe; proceeding to creating objects for each individual.")
 
     # add a student/family object for each row in the dataframe
+    print(students.shape[0]) #prints 76
     for row in range(students.shape[0]):
+        print(row)
         studs.append(student(row)) #create students
+        studs[row].display()
+        if len(studs)!=1:
+            studs[row-1].display()
+    for row in studs:
+        print(row.ranks)
     for row in range(families.shape[0]):
         fams.append(family(row)) #create family
 

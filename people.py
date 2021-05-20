@@ -24,23 +24,22 @@ class student:#I'll have one object of this type for each participating student
         #generate & store rankings
         genres=students.iat[row,2]#temporarily store genre selections
         musics=[students.iat[row,3],students.iat[row,4],students.iat[row,5],students.iat[row,6],students.iat[row,7],students.iat[row,8],students.iat[row,9],students.iat[row,10],students.iat[row,11],students.iat[row,12],students.iat[row,13],students.iat[row,14]]#temporarily store song selections
-        for genre in range(6): #each number represents a genre (1=pop, 2=jazz & blues, and so on)
+        for genre in range(1,7): #each number represents a genre (1=pop, 2=jazz & blues, and so on)
             #assign rank system based on flowchart:
-            if str(genre+1) in genres: #liked the genre
-                if musics[genre*2-1]==1 and musics[genre*2]==1: #liked both musics
+            if str(genre) in genres: #liked the genre
+                if musics[genre*2-2]==1 and musics[genre*2-1]==1: #liked both musics
                     self.ranks[genre-1]=5
-                elif musics[genre*2-1]==1 or musics[genre*2]==1: #liked one music
+                elif musics[genre*2-2]==1 or musics[genre*2-1]==1: #liked one music
                     self.ranks[genre-1]=4
                 else: #liked none
                     self.ranks[genre-1]=3
             else: #disliked the genre
-                if musics[genre*2-1]==1 and musics[genre*2]==1: #liked both musics
+                if musics[genre*2-2]==1 and musics[genre*2-1]==1: #liked both musics
                     self.ranks[genre-1]=2
-                elif musics[genre*2-1]==1 or musics[genre*2]==1: #liked one music
+                elif musics[genre*2-2]==1 or musics[genre*2-1]==1: #liked one music
                     self.ranks[genre-1]=1
                 else: #liked none
                     self.ranks[genre-1]=0
-        self.display()#display info to ensure operation completed successfully
 
 class family:#I'll have one object of this type for each participating family member; identical to Student but lacks fam[] and friends[]
     name=[]
@@ -54,19 +53,18 @@ class family:#I'll have one object of this type for each participating family me
         self.name=(families.iat[row,0],families.iat[row,1])
         genres=families.iat[row,2]
         musics=[families.iat[row,3],families.iat[row,4],families.iat[row,5],families.iat[row,6],families.iat[row,7],families.iat[row,8],families.iat[row,9],families.iat[row,10],families.iat[row,11],families.iat[row,12],families.iat[row,13],families.iat[row,14]]
-        for genre in range(6):
-            if str(genre+1) in genres:
-                if musics[genre*2-1]==1 and musics[genre*2]==1:
+        for genre in range(1,7):
+            if str(genre) in genres:
+                if musics[genre*2-2]==1 and musics[genre*2-1]==1:
                     self.ranks[genre-1]=5
-                elif musics[genre*2-1]==1 or musics[genre*2]==1:
+                elif musics[genre*2-2]==1 or musics[genre*2-1]==1:
                     self.ranks[genre-1]=4
                 else:
                     self.ranks[genre-1]=3
             else:
-                if musics[genre*2-1]==1 and musics[genre*2]==1:
+                if musics[genre*2-2]==1 and musics[genre*2-1]==1:
                     self.ranks[genre-1]=2
-                elif musics[genre*2-1]==1 or musics[genre*2]==1:
+                elif musics[genre*2-2]==1 or musics[genre*2-1]==1:
                     self.ranks[genre-1]=1
                 else:
                     self.ranks[genre-1]=0
-        self.display()
