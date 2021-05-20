@@ -133,7 +133,8 @@ def wc(studs, fams):
 
 def chi2(group1, group2):
     # conduct chi-square test for association
-    g1 = g2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    g1 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    g2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     for x in range(10):
         for p in group1:
             if p >= 0.1 * x and p < 0.1 * (x + 1):
