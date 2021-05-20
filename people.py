@@ -82,6 +82,6 @@ class Family:  # I'll have one object of this type for each participating family
                 self.ranks[genre - 1] = musics[genre * 2 - 2] \
                                       + musics[genre * 2 - 1]
 
-def student_at_row(n: int) -> student:
+def student_at_row(n: int) -> Student:
     row = [student for student in students.iloc[n]]
     return Student(row)
