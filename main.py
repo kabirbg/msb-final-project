@@ -25,22 +25,19 @@ def wc(studs, fams):
     fam_results = []
     friend_results = []
 
-    print("Running tests between each student and each family member/friend.")
     for index in range(len(studs)):
         student = studs[index]
         fam0, fam1, friend0, friend1 = findmatches(student, studs, fams)
 
         if fam0 != "":  # fam0 exists
             # run tests between student and family member 0
-            print(student.ranks)
-            print(fam0.ranks)
             if student.ranks == fam0.ranks:
                 print(
-                    "{} {} and {} {} (family member) have the same rankings. The result is hence insignificant.".format(
+                    "{} {} and {} {} (family member) have the same rankings. p=0".format(
                         student.name[1], student.name[0], fam0.name[1], fam0.name[0]
                     )
                 )
-                fam_results.append("insignificant")
+                p = 0
             else:
                 w, p = wilcoxon(student.ranks, fam0.ranks)
                 print(
@@ -53,23 +50,17 @@ def wc(studs, fams):
                         p,
                     )
                 )
-                if p < 0.05:
-                    fam_results.append("statistically significant")
-                elif p < 0.1:
-                    fam_results.append("significant @ 10%")
-                else:
-                    fam_results.append("insignificant")
+            fam_results.append(p)
+
         if fam1 != "":  # fam1 exists
             # run tests between student and family member 1
-            print(student.ranks)
-            print(fam1.ranks)
             if student.ranks == fam1.ranks:
                 print(
-                    "{} {} and {} {} (family member) have the same rankings. The result is hence insignificant.".format(
+                    "{} {} and {} {} (family member) have the same rankings. p=0".format(
                         student.name[1], student.name[0], fam1.name[1], fam1.name[0]
                     )
                 )
-                fam_results.append("insignificant")
+                p = 0
             else:
                 w, p = wilcoxon(student.ranks, fam1.ranks)
                 print(
@@ -82,26 +73,20 @@ def wc(studs, fams):
                         p,
                     )
                 )
-                if p < 0.05:
-                    fam_results.append("statistically significant")
-                elif p < 0.10:
-                    fam_results.append("significant @ 10%")
-                else:
-                    fam_results.append("insignificant")
+            fam_results.append(p)
+
         if friend0 != "":  # friend0 exists
             # run tests between student and friend 0
-            print(student.ranks)
-            print(friend0.ranks)
             if student.ranks == friend0.ranks:
                 print(
-                    "{} {} and {} {} (friend) have the same rankings. The result is hence insignificant.".format(
+                    "{} {} and {} {} (friend) have the same rankings. p=0".format(
                         student.name[1],
                         student.name[0],
                         friend0.name[1],
                         friend0.name[0],
                     )
                 )
-                friend_results.append("insignificant")
+                p = 0
             else:
                 w, p = wilcoxon(student.ranks, friend0.ranks)
                 print(
@@ -114,26 +99,20 @@ def wc(studs, fams):
                         p,
                     )
                 )
-                if p < 0.05:
-                    friend_results.append("statistically significant")
-                elif p < 0.10:
-                    friend_results.append("significant @ 10%")
-                else:
-                    friend_results.append("insignificant")
+            friend_results.append(p)
+
         if friend1 != "":  # friend1 exists
             # run tests between student and friend 1
-            print(student.ranks)
-            print(friend1.ranks)
             if student.ranks == friend1.ranks:
                 print(
-                    "{} {} and {} {} (friend) have the same rankings. The result is hence insignificant.".format(
+                    "{} {} and {} {} (friend) have the same rankings. p=0".format(
                         student.name[1],
                         student.name[0],
                         friend1.name[1],
                         friend1.name[0],
                     )
                 )
-                friend_results.append("insignificant")
+                p = 0
             else:
                 w, p = wilcoxon(student.ranks, friend1.ranks)
                 print(
@@ -146,30 +125,30 @@ def wc(studs, fams):
                         p,
                     )
                 )
-                if p < 0.05:
-                    friend_results.append("statistically significant")
-                elif p < 0.10:
-                    friend_results.append("significant @ 10%")
-                else:
-                    friend_results.append("insignificant")
+
+            friend_results.append(p)
 
     return (fam_results, friend_results)
 
 
 def chi2(group1, group2):
     # conduct chi-square test for association
-    chi2observed = [
-        [
-            group1.count("insignificant"),
-            group1.count("statistically significant"),
-            group1.count("highly statistically significant"),
-        ],
-        [
-            group2.count("insignificant"),
-            group2.count("statistically significant"),
-            group2.count("highly statistically significant"),
-        ],
-    ]
+    g1 = g2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    for x in range(10):
+        for p in group1:
+            if p >= 0.1 * x and p < 0.1 * (x + 1):
+                g1[x] += 1
+        for p in group2:
+            if p > 0.1 * x and p < 0.1 * (x + 1):
+                g2[x] += 1
+    for p in group1:
+        if p == 1:
+            g1[9] += 1
+    for p in group2:
+        if p == 1:
+            g2[9] += 1
+
+    chi2observed = [g1, g2]
     print(
         "Here are the observed frequencies of each type of result for family members and friends, respectively:"
     )
@@ -191,55 +170,63 @@ def srcc(students, families):
     famccs = []
     friendccs = []
     for genre in range(6):  #
-        studentranks = []
+        studentranksa = []  # for fam
+        studentranksb = []  # for friend
         famranks = []
         friendranks = []
 
         for student in students:
-            fam0, fam1, friend0, friend1 = findmatches()
-            studentranks.append(student.ranks[genre])
-            if fam0 != "" and fam1 != "":  # both of them were found
-                fam = (fam0.ranks[genre] + fam1.ranks[genre]) / 2  # median not mean
-                famranks.append(fam)
-            elif fam0 != "":  # only fam0 was found
-                fam = fam0  # pick the only one we have
-                famranks.append(fam)
-            elif fam1 != "":  # only fam1 was found
-                fam = fam1
-                famranks.append(fam)
-            if friend0 != "" and friend1 != "":  # repeat same for the friends
-                friend = (
-                    friend0.ranks[genre] + friend1.ranks[genre]
-                ) / 2  # median again
-                friendranks.append(friend)
-            elif friend0 != "":
-                friend = friend0
-                friendranks.append(friend)
-            elif friend1 != "":
-                friend = friend1
-                friendranks.append(friend)
+            fam0, fam1, friend0, friend1 = findmatches(student, students, families)
 
-        print("The student ranks (x) for Genre #%i were: " % genre, end="")
-        print(studentranks)
-        print("The family ranks (y1) for Genre #%i were: " % genre, end="")
+            studentranksa.append(student.ranks[genre])
+            if fam0 != "" and fam1 != "":  # both of them were found
+                famranks.append(
+                    (fam0.ranks[genre] + fam1.ranks[genre]) / 2
+                )  # median not mean
+            elif fam0 != "":  # only fam0 was found
+                famranks.append(fam0.ranks[genre])  # pick the only one we have
+            elif fam1 != "":  # only fam1 was found
+                famranks.append(fam1.ranks[genre])
+            else:  # no family members were found
+                studentranksa.remove(
+                    student.ranks[genre]
+                )  # we can't use this student's data
+
+            studentranksb.append(student.ranks[genre])
+            if friend0 != "" and friend1 != "":  # repeat same for the friends
+                friendranks.append(
+                    (friend0.ranks[genre] + friend1.ranks[genre]) / 2
+                )  # median again
+            elif friend0 != "":
+                friendranks.append(friend0.ranks[genre])
+            elif friend1 != "":
+                friendranks.append(friend1.ranks[genre])
+            else:
+                studentranksb.remove(student.ranks[genre])
+
+        print("The student ranks (x1) for Genre #%i were: " % (genre+1), end="")
+        print(studentranksa)
+        print("The family ranks (y1) for Genre #%i were: " % (genre+1), end="")
         print(famranks)
-        print("The friend ranks (y2) for Genre #%i were: " % genre, end="")
+        print("The student ranks (x2) for Genre #%i were: " % (genre+1), end="")
+        print(studentranksb)
+        print("The friend ranks (y2) for Genre #%i were: " % (genre+1), end="")
         print(friendranks)
 
-        r, p = spearmanr(studentranks, famranks)
+        r, p = spearmanr(studentranksa, famranks)
         print(
-            "The correlation coefficient between students and family members for Genre #%i was %%2.5f (p=%2.5f)"
-            % (genre, r, p)
+            "The correlation coefficient between students and family members for Genre #%i was %2.5f (p=%2.5f)"
+            % ((genre+1), r, p)
         )
-        famccs.append(r, p)
-        r, p = spearmanr(studentranks, friend)
+        famccs.append(r)
+        r, p = spearmanr(studentranksb, friendranks)
         print(
-            "The correlation coefficient between students and friends for Genre #%i was %%2.5f (p=%2.5f)"
-            % (genre, r, p)
+            "The correlation coefficient between students and friends for Genre #%i was %2.5f (p=%2.5f)"
+            % ((genre+1), r, p)
         )
-        friendccs.append(r, p)
+        friendccs.append(r)
 
-        return famccs, friendccs
+    return famccs, friendccs
 
 
 def main():
@@ -257,11 +244,14 @@ def main():
         studs.append(Student.at_row(row))  # create students
     for row in range(families.shape[0]):
         fams.append(Family.at_row(row))  # create family
+
     print(
         "Student/Family objects were successfully created; running Wilcoxon tests between each individual and their friends/family members."
     )
-    genetic, environmental = wc(studs, fams)
+
     # run wilcoxon tests
+    genetic, environmental = wc(studs, fams)
+    print()
     print("Here are the results of the Wilcoxon Tests for the family members:")
     print(genetic)
     print("Here are the results of the Wilcoxon Tests for the friends:")
@@ -271,15 +261,16 @@ def main():
     print("Here is the most common result of the tests for the friends:")
     print(multimode(environmental))
 
-    chi2(genetic, environmental)
+    p = chi2(genetic, environmental)
     if p > 0.5:
         print(
             "WARNING: There is not a statistically significant association between relationship type and similarity of music choice. Following results may be very unreliable."
         )
+    print()
     genecc, envcc = srcc(studs, fams)
 
     print(
-        "The average correlation coefficient for a genetic  relationship is "
+        "The average correlation coefficient for a genetic relationship is "
         + str(mean(genecc))
     )
     print(
