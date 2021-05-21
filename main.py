@@ -215,10 +215,14 @@ def srcc(students, families):
         print("The friend ranks (y2) for Genre #%i were: " % (genre + 1), end="")
         print(friendranks)
 
-        gen_name="Genre #%i"%(genre+1)
+        gen_name = "Genre #%i" % (genre + 1)
 
-        famplot.scatter(studentranksa,famranks,label=gen_name)#add stud and fam to scatter plot
-        friendplot.scatter(studentranksb,friendranks,label=gen_name)#add stud and friend to scatter plot
+        famplot.scatter(
+            studentranksa, famranks, label=gen_name
+        )  # add stud and fam to scatter plot
+        friendplot.scatter(
+            studentranksb, friendranks, label=gen_name
+        )  # add stud and friend to scatter plot
 
         r, p = spearmanr(studentranksa, famranks)
         print(
@@ -233,14 +237,14 @@ def srcc(students, families):
         )
         friendccs.append(r)
 
-    famplot.legend(loc='upper left')#create legends
+    famplot.legend(loc="upper left")  # create legends
     famplot.set_xlabel("Student's score")
     famplot.set_ylabel("Family Members' median score")
-    friendplot.legend(loc='upper left')
+    friendplot.legend(loc="upper left")
     friendplot.set_xlabel("Student's score")
     friendplot.set_ylabel("Friends' median score")
-    friendplot.yaxis.set_label_position("right")#so that it has room to be seen    
-    plt.savefig('scatter_plots.png')#export to a png
+    friendplot.yaxis.set_label_position("right")  # so that it has room to be seen
+    plt.savefig("scatter_plots.png")  # export to a png
 
     return famccs, friendccs
 
@@ -285,6 +289,9 @@ def main():
     print()
     genecc, envcc = srcc(studs, fams)
 
+    print("Genetic correlation coefficients, as a list: " + str(genecc))
+    print("Environmental correlation coefficients, as a list: " + str(envcc))
+
     print(
         "The average correlation coefficient for a genetic relationship is "
         + str(mean(genecc))
@@ -302,7 +309,7 @@ if __name__ == "__main__":
         spearmanr,
     )  # needed for statistical testing
     from statistics import mean, multimode  # needed for descriptive statistics
-    import matplotlib.pyplot as plt #needed for graphing SRCC data
+    import matplotlib.pyplot as plt  # needed for graphing SRCC data
     from people import *  # needed dataframes & classes from ./people.py
 
     main()
