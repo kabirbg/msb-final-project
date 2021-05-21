@@ -8,7 +8,7 @@
     colorlinks=true,
     linkcolor=blue,
     filecolor=magenta,
-    urlcolor=cyan,
+    urlcolor=blue,
     pdftitle={Overleaf Example},
     pdfpagemode=FullScreen,
 }
@@ -177,10 +177,12 @@ A Google Forms survey was used in this study, and the data was linked into a Goo
 For the Python script, the SciPy Statistics library (\texttt{scipy==1.6.3}) was used to perform statistical analyses. The Pandas library (\texttt{pandas==1.2.4}) was used to import data from a CSV (exported from Google Sheets) into the Python script. Finally, the Matplotlib library (\texttt{matplotlib==3.4.2}) was used to draw scatter plots from the data collected.
 
 \chapter*{Appendix I}
-Here is the raw data collected over the course of study (after being anonymized). The first table displays raw data for students (including friends), and the second for family members.
+On the following two pages are presented the raw data collected over the course of study. In order to protect the privacy of those participating in the study, respondents' first and last names have been entirely ommitted, and their friends' and family members' names have been replaced with the unique timestamps associated with that person's response. The first table displays raw data for students (including friends), and the second for family members.
 
+\newgeometry{left=0.1cm,right=0.1cm}
 \include{students_data.tex}
 \include{family_data.tex}
+\restoregeometry
 
 \chapter*{Appendix II}
 The following scripts were used to analyze the data gathered.

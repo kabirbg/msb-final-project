@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.17)  21 MAY 2021 00:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.17)  21 MAY 2021 09:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -422,33 +422,54 @@ Package pdftex.def Info: scatter_plots.png  used on input line 76.
 ] [11
 
 ]
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(2.84544pt, 608.60411pt, 2.84544pt)
+* v-part:(T,H,B)=(95.39737pt, 556.47656pt, 143.09605pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=608.60411pt
+* \textheight=556.47656pt
+* \oddsidemargin=-69.42455pt
+* \evensidemargin=-69.42455pt
+* \topmargin=-13.87262pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
 \openout2 = `students_data.aux'.
 
- (./students_data.tex
-Overfull \hbox (2582.5985pt too wide) in paragraph at lines 3--83
- [][] 
- []
-
-
-LaTeX Warning: Float too large for page by 497.26834pt on input line 83.
-
-) [12]
+ (./students_data.tex) [12]
 \openout2 = `family_data.aux'.
 
- (./family_data.tex
-Overfull \hbox (1504.3615pt too wide) in paragraph at lines 3--72
- [][] 
- []
 
-
-LaTeX Warning: Float too large for page by 333.36858pt on input line 72.
-
-) [13] (/usr/local/texlive/2021basic/texmf-dist/tex/latex/listings/lstlang1.sty
+(./family_data.tex) [13]
+(/usr/local/texlive/2021basic/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 190.
- (./main.py [14
+nput line 192.
+
+(./main.py [14
+
+
 
 
 
@@ -475,11 +496,11 @@ Package rerunfilecheck Info: File `Report.out' has not changed.
 Here is how much of TeX's memory you used:
  11959 strings out of 480287
  173755 string characters out of 5889806
- 1285382 words of memory out of 5000000
+ 1285311 words of memory out of 5000000
  28744 multiletter control sequences out of 15000+600000
  409909 words of font info for 49 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 60i,8n,63p,1190b,2097s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,9n,63p,1190b,2097s stack positions out of 5000i,500n,10000p,200000b,80000s
  </Volumes/Home/kabir/Library/texlive/2021basic/texmf-var/fonts/pk/ljfour/jkn
 appen/ec/tctt1000.600pk> </Volumes/Home/kabir/Library/texlive/2021basic/texmf-v
 ar/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/local/texlive/2021basic/tex
@@ -495,7 +516,7 @@ l/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/
 local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></
 usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pf
 b>
-Output written on Report.pdf (24 pages, 366794 bytes).
+Output written on Report.pdf (24 pages, 365910 bytes).
 PDF statistics:
  761 PDF objects out of 1000 (max. 8388607)
  710 compressed objects within 8 object streams
