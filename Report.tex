@@ -2,7 +2,6 @@
 \usepackage[margin=1in]{geometry}
 \usepackage[english]{babel}
 \usepackage{graphicx}
-\usepackage{csvsimple}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -179,7 +178,12 @@ For the Python script, the SciPy Statistics library (\texttt{scipy==1.6.3}) was 
 
 \chapter*{Appendix I}
 Here is the raw data collected over the course of study (after being anonymized).
-\csvautotabular{Students.csv}
+
+Data for students:
+\include{students_data.tex}
+
+Data for family members:
+\include{family_data.tex}
 
 \chapter*{Appendix II}
 The following scripts were used to analyze the data gathered.

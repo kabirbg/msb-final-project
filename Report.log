@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.17)  21 MAY 2021 00:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.5.17)  21 MAY 2021 00:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -92,53 +92,6 @@ File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 \Gin@req@height=\dimen148
 \Gin@req@width=\dimen149
 )
-(/usr/local/texlive/2021basic/texmf-dist/tex/latex/csvsimple/csvsimple.sty
-Package: csvsimple 2019/04/09 version 1.21 LaTeX CSV file processing
-
-(/usr/local/texlive/2021basic/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
-(/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/utilities/pgfutil-comm
-on.tex
-\pgfutil@everybye=\toks17
-\pgfutil@tempdima=\dimen150
-\pgfutil@tempdimb=\dimen151
-
-(/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/utilities/pgfutil-comm
-on-lists.tex))
-(/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/utilities/pgfutil-late
-x.def
-\pgfutil@abb=\box47
-)
-(/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.
-tex (/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/pgf.revision.tex)
-Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
-)) (/usr/local/texlive/2021basic/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
-
-(/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code
-.tex
-\pgfkeys@pathtoks=\toks18
-\pgfkeys@temptoks=\toks19
-
-(/usr/local/texlive/2021basic/texmf-dist/tex/generic/pgf/utilities/pgfkeysfilte
-red.code.tex
-\pgfkeys@tmptoks=\toks20
-)))
-(/usr/local/texlive/2021basic/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-)
-(/usr/local/texlive/2021basic/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count193
-)
-(/usr/local/texlive/2021basic/texmf-dist/tex/latex/tools/shellesc.sty
-Package: shellesc 2019/11/08 v1.0c unified shell escape interface for LaTeX
-Package shellesc Info: Restricted shell escape enabled on input line 77.
-)
-\csv@file=\read3
-\c@csvinputline=\count194
-\c@csvrow=\count195
-\c@csvcol=\count196
-\csv@out=\write3
-)
 (/usr/local/texlive/2021basic/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2021-02-27 v7.00k Hypertext links for LaTeX
 
@@ -177,9 +130,9 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 (/usr/local/texlive/2021basic/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 )
-\@linkdim=\dimen152
-\Hy@linkcounter=\count197
-\Hy@pagecounter=\count198
+\@linkdim=\dimen150
+\Hy@linkcounter=\count193
+\Hy@pagecounter=\count194
 
 (/usr/local/texlive/2021basic/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2021-02-27 v7.00k Hyperref: PDFDocEncoding definition (HO)
@@ -195,7 +148,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) (/usr/local/texlive/2021basic/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count199
+\Hy@SavedSpaceFactor=\count195
 
 (/usr/local/texlive/2021basic/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2021-02-27 v7.00k Hyperref: PDF Unicode definition (HO)
@@ -209,14 +162,14 @@ Package hyperref Info: Plain pages OFF on input line 4207.
 Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count266
+\c@Hy@tempcnt=\count196
 
 (/usr/local/texlive/2021basic/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4804.
-\XeTeXLinkMargin=\dimen153
+\XeTeXLinkMargin=\dimen151
 
 (/usr/local/texlive/2021basic/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -225,9 +178,9 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count267
-\Field@Width=\dimen154
-\Fld@charsize=\dimen155
+\Fld@menulength=\count197
+\Field@Width=\dimen152
+\Fld@charsize=\dimen153
 Package hyperref Info: Hyper figures OFF on input line 6075.
 Package hyperref Info: Link nesting OFF on input line 6080.
 Package hyperref Info: Hyper index ON on input line 6083.
@@ -242,9 +195,9 @@ Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
 ge
 with kernel methods
 )
-\Hy@abspage=\count268
-\c@Item=\count269
-\c@Hfootnote=\count270
+\Hy@abspage=\count198
+\c@Item=\count199
+\c@Hfootnote=\count266
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
@@ -256,8 +209,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
 e
 with kernel methods
 )
-\Fld@listcount=\count271
-\c@bookmark@seq@number=\count272
+\Fld@listcount=\count267
+\c@bookmark@seq@number=\count268
 
 (/usr/local/texlive/2021basic/texmf-dist/tex/latex/rerunfilecheck/rerunfilechec
 k.sty
@@ -272,27 +225,27 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip49
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 15.
+Package hyperref Info: Option `colorlinks' set `true' on input line 14.
 
 (/usr/local/texlive/2021basic/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count273
-\lst@gtempboxa=\box48
-\lst@token=\toks21
-\lst@length=\count274
-\lst@currlwidth=\dimen156
-\lst@column=\count275
-\lst@pos=\count276
-\lst@lostspace=\dimen157
-\lst@width=\dimen158
-\lst@newlines=\count277
-\lst@lineno=\count278
-\lst@maxwidth=\dimen159
+\lst@mode=\count269
+\lst@gtempboxa=\box47
+\lst@token=\toks17
+\lst@length=\count270
+\lst@currlwidth=\dimen154
+\lst@column=\count271
+\lst@pos=\count272
+\lst@lostspace=\dimen155
+\lst@width=\dimen156
+\lst@newlines=\count273
+\lst@lineno=\count274
+\lst@maxwidth=\dimen157
 
 (/usr/local/texlive/2021basic/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count279
-\lst@skipnumbers=\count280
-\lst@framebox=\box49
+\c@lstnumber=\count275
+\lst@skipnumbers=\count276
+\lst@framebox=\box48
 )
 (/usr/local/texlive/2021basic/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
@@ -319,29 +272,29 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 (/usr/local/texlive/2021basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.d
 ef
 File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count281
-\l__pdf_internal_box=\box50
+\l__color_backend_stack_int=\count277
+\l__pdf_internal_box=\box49
 ) (./Report.aux)
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -379,17 +332,17 @@ LaTeX Font Info:    ... okay on input line 46.
 
 (/usr/local/texlive/2021basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count282
-\scratchdimen=\dimen160
-\scratchbox=\box51
-\nofMPsegments=\count283
-\nofMParguments=\count284
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count285
-\MPscratchDim=\dimen161
-\MPnumerator=\count286
-\makeMPintoPDFobject=\count287
-\everyMPtoPDFconversion=\toks23
+\scratchcounter=\count278
+\scratchdimen=\dimen158
+\scratchbox=\box50
+\nofMPsegments=\count279
+\nofMParguments=\count280
+\everyMPshowfont=\toks18
+\MPscratchCnt=\count281
+\MPscratchDim=\dimen159
+\MPnumerator=\count282
+\makeMPintoPDFobject=\count283
+\everyMPtoPDFconversion=\toks19
 )
 (/usr/local/texlive/2021basic/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.s
 ty
@@ -401,7 +354,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring ON on input line 46.
+Package hyperref Info: Link coloring ON on input line 45.
  (/usr/local/texlive/2021basic/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 
@@ -412,43 +365,43 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ing.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count288
+\c@section@level=\count284
 )
-LaTeX Info: Redefining \ref on input line 46.
-LaTeX Info: Redefining \pageref on input line 46.
-LaTeX Info: Redefining \nameref on input line 46.
+LaTeX Info: Redefining \ref on input line 45.
+LaTeX Info: Redefining \pageref on input line 45.
+LaTeX Info: Redefining \nameref on input line 45.
  (./Report.out) (./Report.out)
-\@outlinefile=\write4
-\openout4 = `Report.out'.
+\@outlinefile=\write3
+\openout3 = `Report.out'.
 
-\c@lstlisting=\count289
+\c@lstlisting=\count285
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 51.
+(Font)              <14.4> on input line 50.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 51.
+(Font)              <7> on input line 50.
  [1
 
 {/usr/local/texlive/2021basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 53.
+(Font)              <12> on input line 52.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 53.
+(Font)              <8> on input line 52.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 53.
+(Font)              <6> on input line 52.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 53.
+(Font)              <5> on input line 52.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.59 \chapter
+l.58 \chapter
              *{Materials and Methods} [1
 
 ]
 <matrix.png, id=21, 1445.4pt x 813.0375pt>
 File: matrix.png Graphic file (type png)
 <use matrix.png>
-Package pdftex.def Info: matrix.png  used on input line 65.
+Package pdftex.def Info: matrix.png  used on input line 64.
 (pdftex.def)             Requested size: 234.8775pt x 132.11082pt.
  [2
 
@@ -456,7 +409,7 @@ Package pdftex.def Info: matrix.png  used on input line 65.
 <scatter_plots.png, id=34, 462.528pt x 346.896pt>
 File: scatter_plots.png Graphic file (type png)
 <use scatter_plots.png>
-Package pdftex.def Info: scatter_plots.png  used on input line 77.
+Package pdftex.def Info: scatter_plots.png  used on input line 76.
 (pdftex.def)             Requested size: 462.52686pt x 346.89514pt.
  [4
 
@@ -466,27 +419,86 @@ Package pdftex.def Info: scatter_plots.png  used on input line 77.
 
 ] [9] [10
 
-]
-! Illegal parameter number in definition of \csv@col@body.
-<to be read again> 
-                   1
-l.182 \csvautotabular{Students.csv}
-                                   
-? 
-! Emergency stop.
-<to be read again> 
-                   1
-l.182 \csvautotabular{Students.csv}
-                                   
-End of file on the terminal!
+] [11
 
- 
+]
+\openout2 = `students_data.aux'.
+
+ (./students_data.tex
+Overfull \hbox (2582.5985pt too wide) in paragraph at lines 3--83
+ [][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 497.26834pt on input line 83.
+
+) [12]
+\openout2 = `family_data.aux'.
+
+ (./family_data.tex
+Overfull \hbox (1504.3615pt too wide) in paragraph at lines 3--72
+ [][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 333.36858pt on input line 72.
+
+) [13] (/usr/local/texlive/2021basic/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 189.
+ (./main.py [14
+
+
+
+
+
+
+
+] [15] [16] [17] [18] [19])
+(/usr/local/texlive/2021basic/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+(./wrapper.sh [20]
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
+5.
+
+(/usr/local/texlive/2021basic/texmf-dist/tex/latex/base/ts1cmtt.fd
+File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+))
+(./people.py [21] [22]) [23] (./Report.aux (./students_data.aux)
+(./family_data.aux))
+Package rerunfilecheck Info: File `Report.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+ ) 
 Here is how much of TeX's memory you used:
- 12447 strings out of 480287
- 195068 string characters out of 5889806
- 532872 words of memory out of 5000000
- 29684 multiletter control sequences out of 15000+600000
- 409444 words of font info for 47 fonts, out of 8000000 for 9000
+ 11953 strings out of 480287
+ 173657 string characters out of 5889806
+ 1284673 words of memory out of 5000000
+ 28742 multiletter control sequences out of 15000+600000
+ 409909 words of font info for 49 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 60i,8n,63p,1190b,362s stack positions out of 5000i,500n,10000p,200000b,80000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 60i,8n,63p,1190b,2097s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </Volumes/Home/kabir/Library/texlive/2021basic/texmf-var/fonts/pk/ljfour/jkn
+appen/ec/tctt1000.600pk> </Volumes/Home/kabir/Library/texlive/2021basic/texmf-v
+ar/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/local/texlive/2021basic/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2021basic
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2021b
+asic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/20
+21basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive
+/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texl
+ive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/te
+xlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/
+texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
+l/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/
+local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></
+usr/local/texlive/2021basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pf
+b>
+Output written on Report.pdf (24 pages, 366704 bytes).
+PDF statistics:
+ 761 PDF objects out of 1000 (max. 8388607)
+ 710 compressed objects within 8 object streams
+ 496 named destinations out of 1000 (max. 500000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+
