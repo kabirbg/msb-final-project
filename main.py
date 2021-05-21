@@ -301,12 +301,22 @@ def main():
         + str(mean(envcc))
     )
 
+    print()
+    t, p = ttest_rel(genecc, envcc)  # paired t-test for two samples
+    print(
+        "The paired t-test for a difference between genetic and environmental correlation coefficients gave the test statistic t="
+        + str(t)
+        + "."
+    )
+    print("The p-value was " + str(p) + ".")
+
 
 if __name__ == "__main__":
     from scipy.stats import (
         wilcoxon,
         chi2_contingency,
         spearmanr,
+        ttest_rel,
     )  # needed for statistical testing
     from statistics import mean, multimode  # needed for descriptive statistics
     import matplotlib.pyplot as plt  # needed for graphing SRCC data
