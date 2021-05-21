@@ -2,6 +2,7 @@
 \usepackage[margin=1in]{geometry}
 \usepackage[english]{babel}
 \usepackage{graphicx}
+\usepackage{csvsimple}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -178,22 +179,7 @@ For the Python script, the SciPy Statistics library (\texttt{scipy==1.6.3}) was 
 
 \chapter*{Appendix I}
 Here is the raw data collected over the course of study (after being anonymized).
-
-
-
-\begin{verbatim}
-Python Pseudocode:
-    def GetListOfNames:
-        list of names
-        column.foreach(name)
-            add name to list
-
-    def Anonymize:
-           var counter = 0
-           for name in names
-                name = counter
-                counter += 1
-\end{verbatim}
+\csvautotabular{Students.csv}
 
 \chapter*{Appendix II}
 The following scripts were used to analyze the data gathered.
