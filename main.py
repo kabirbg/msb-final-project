@@ -170,12 +170,14 @@ def chi2(group1, group2):
 def srcc(students, families):
     famccs = []
     friendccs = []
-    fig, (famplot, friendplot) = plt.subplots(1, 2)
     for genre in range(6):  #
         studentranksa = []  # for fam
         studentranksb = []  # for friend
         famranks = []
         friendranks = []
+        plotx = []
+        ploty = []
+        fig, plot = plt.subplots()
 
         for student in students:
             fam0, fam1, friend0, friend1 = findmatches(student, students, families)
@@ -206,45 +208,60 @@ def srcc(students, families):
             else:
                 studentranksb.remove(student.ranks[genre])
 
-        print("The student ranks (x1) for Genre #%i were: " % (genre + 1), end="")
-        print(studentranksa)
-        print("The family ranks (y1) for Genre #%i were: " % (genre + 1), end="")
-        print(famranks)
-        print("The student ranks (x2) for Genre #%i were: " % (genre + 1), end="")
-        print(studentranksb)
-        print("The friend ranks (y2) for Genre #%i were: " % (genre + 1), end="")
-        print(friendranks)
+            if (fam0 != "" or fam1 != "") and (friend0 != "" or friend1 != ""):
+                if fam0 == "":
+                    plotx.append(abs(student.ranks[genre] - fam1.ranks[genre]))
+                elif fam1 == "":
+                    plotx.append(abs(student.ranks[genre] - fam0.ranks[genre]))
+                else:
+                    plotx.append(
+                        abs(
+                            student.ranks[genre]
+                            - ((fam0.ranks[genre] + fam1.ranks[genre]) / 2)
+                        )
+                    )
+                if friend0 == "":
+                    ploty.append(abs(student.ranks[genre] - friend1.ranks[genre]))
+                elif friend1 == "":
+                    ploty.append(abs(student.ranks[genre] - friend0.ranks[genre]))
+                else:
+                    ploty.append(
+                        abs(
+                            student.ranks[genre]
+                            - ((friend0.ranks[genre] + friend1.ranks[genre]) / 2)
+                        )
+                    )
 
         gen_name = "Genre #%i" % (genre + 1)
-
-        famplot.scatter(
-            studentranksa, famranks, label=gen_name
-        )  # add stud and fam to scatter plot
-        friendplot.scatter(
-            studentranksb, friendranks, label=gen_name
-        )  # add stud and friend to scatter plot
+        print("The student ranks (x1) for " + gen_name + " were: ", end="")
+        print(studentranksa)
+        print("The family ranks (y1) for " + gen_name + " were: ", end="")
+        print(famranks)
+        print("The student ranks (x2) for " + gen_name + " were: ", end="")
+        print(studentranksb)
+        print("The friend ranks (y2) for " + gen_name + " were: ", end="")
+        print(friendranks)
 
         r, p = spearmanr(studentranksa, famranks)
         print(
-            "The correlation coefficient between students and family members for Genre #%i was %2.5f (p=%2.5f)"
-            % ((genre + 1), r, p)
+            "The correlation coefficient between students and family members for "
+            + gen_name
+            + " was %2.5f (p=%2.5f)" % (r, p)
         )
         famccs.append(r)
         r, p = spearmanr(studentranksb, friendranks)
         print(
-            "The correlation coefficient between students and friends for Genre #%i was %2.5f (p=%2.5f)"
-            % ((genre + 1), r, p)
+            "The correlation coefficient between students and friends for "
+            + gen_name
+            + " was %2.5f (p=%2.5f)" % (r, p)
         )
         friendccs.append(r)
 
-    famplot.legend(loc="upper left")  # create legends
-    famplot.set_xlabel("Student's score")
-    famplot.set_ylabel("Family Members' median score")
-    friendplot.legend(loc="upper left")
-    friendplot.set_xlabel("Student's score")
-    friendplot.set_ylabel("Friends' median score")
-    friendplot.yaxis.set_label_position("right")  # so that it has room to be seen
-    plt.savefig("scatter_plots.png")  # export to a png
+        plot.scatter(plotx, ploty, label=gen_name)  # add stud and fam to scatter plot
+        plot.legend(loc="upper left")  # create legends
+        plot.set_xlabel("Abs. diff. in family's scores")
+        plot.set_ylabel("Abs. diff in friends' scores")
+        plt.savefig(gen_name + ".png")  # export to a png
 
     return famccs, friendccs
 
