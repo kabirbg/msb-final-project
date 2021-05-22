@@ -49,14 +49,14 @@
 \maketitle
 
 \chapter*{Introduction}
-One of Tinbergen's four causes of behavior is development, or ontogeny: the question of how a behavior came to an organism in the first place.\footnote{Special thanks to Lincoln Auster and Thomas Morford for code review, bug fixes and formatting advice.} While this subject can delve deep into Mendellian inheritance and meiosis, or different forms of learning and different classifications of innate behaviors, the central and highest-level question asked during the study of development is that of nature versus nurture: is the trait genetically inherited or environmentally acquired? Of course, traits are often not one or the other but will rather fall on a spectrum between the two; the purpose of this project is to study one such trait in hopes of determining whether it is influenced more by genes or environment. This trait is musical taste: what kinds of music do people like to listen to?
+One of Tinbergen's four causes of behavior is development, or ontogeny: the question of how a behavior came to an organism in the first place.\footnote{Special thanks to Lincoln Auster and Thomas Morford for code review, bug fixes and formatting advice.} While this subject can delve deep into Mendellian inheritance and meiosis, or different forms of learning and different classifications of innate behaviors, the most basic and central question asked during the study of development is that of nature versus nurture: is the trait genetically inherited or environmentally acquired? Of course, traits are often not one or the other but will rather fall on a spectrum between the two; the purpose of this project is to study one such trait in hopes of determining whether it is influenced more by genes or environment. This trait is musical taste: what kinds of music do people like to listen to?
 
-It is surprisingly common, in the researcher's own (anecdotal) experience, to find two friends who have vastly different music tastes, and the same applies to family members. This leads into the question of who makes more of an impact on your music tastes --- friends will often attest to have virtually identical music taste, but the same could apply to family members; it only seems to vary from person to person and family to family. By gathering a large sample of data, however, it could be determined whether there is actually some sort of trend, or association, between a person's music tastes and their friends'/family's.
+It is surprisingly common, in the researcher's own (anecdotal) experience, to find two friends who have vastly different music tastes, and the same applies to family members. This leads into the question of who makes more of an impact on your music tastes --- friends will often attest to have virtually identical music taste, but the same could apply to family members; it only seems to vary from person to person and family to family. By gathering a large sample of data, however, it could be determined whether there is actually some sort of trend: an association between a person's music tastes and their friends'/family's.
 
 It was expected that both family members and friends would have a significant impact on a person's music choices, although one might not necessarily outweigh the other: that is, there may not be a significant difference between the family's impact and the friends'. This is because people have very strong reasons to like similar music to both a family member and a friend, so that one relationship type should not be significantly closer than the other.
 
 \chapter*{Materials and Methods}
-A Google Forms survey was used to gather data for this study, and a Python script was used to analyze it. Each respondent was asked to select the musical genres that they enjoy out of 6 options: pop, jazz/blues, rock, country/folk, rap/hip hop, and classical. The respondent was then asked to decide whether they like or dislike each of 12 musical clips, out of which each genre was represented by two clips: Uptown Funk and Dead Girl in the Pool (pop), What a Wonderful World and The Thrill is Gone (jazz and blues), Bohemian Rhapsody and Hurt (rock), Old Town Road and I Walk the Line (country and folk), Rap God and Gangsta's Paradise (rap and hip hop), and finally Eine Kleine Nachtmusik and Duel of the Fates (classical).
+A Google Forms survey was used to gather data for this study, and a Python script was used to analyze it (included in Appendix I). Each respondent was asked to select the musical genres that they enjoy out of 6 options: pop, jazz/blues, rock, country/folk, rap/hip hop, and classical. The respondent was then asked to decide whether they like or dislike each of 12 musical clips, out of which each genre was represented by two clips: Uptown Funk and Dead Girl in the Pool (pop), What a Wonderful World and The Thrill is Gone (jazz and blues), Bohemian Rhapsody and Hurt (rock), Old Town Road and I Walk the Line (country and folk), Rap God and Gangsta's Paradise (rap and hip hop), and finally Eine Kleine Nachtmusik and Duel of the Fates (classical).
 
 For the purposes of this study, it was useful to be able to identify whether there were some genres that the respondent did not necessarily dislike, even if it was not something they thought they actively listen to. So, while the first part of the survey asked for what they thought they like, the second part of the survey was in an attempt to see what they might actually like. However, it's possible that somebody who generally likes a certain genre did not like the specific two clips that they had been asked about from that genre. So, the question about categories needed to be weighted more heavily than the questions about specific songs. Further, an overall system was needed for condensing the 2-part data that would be gathered --- genre and music preference, both on nominal scales --- into one number that could be used in statistical testing. Hence, the following scoring system was created, as seen in Figure 1.
 
@@ -77,7 +77,7 @@ There were two main variables being compared in this study: relationship type (f
   \caption{\small Scatter plots displaying the data gathered. At left, each student's score is plotted against the median of their family members' scores for each genre; at right, each student's score is plotted against the median of their friends' scores for each genre.}
 \end{figure}
 
-The scatter plots above display the results of data collection, spread across genres. The raw data gathered during this study is included in Appendix I.
+The scatter plots above display the results of data collection, spread across genres. The raw data gathered during this study is included in Appendix II.
 
 A Wilcoxon test was used for the primary statistical analysis. Out of 49 tests conducted for a difference between the students' rankings and their family members', 9 were statistically significant at a 90\% confidence level (a=0.10), and 5 were significant at a 95\% confidence level (a=0.05). For the friends, 14 tests came out significant at the 90\% confidence level, and 7 at the 95\% confidence level, out of a total of 79 tests. Overall, 18.4\% of tests conducted for family members came back significant, compared to 17.7\% of tests for friends.
 
@@ -177,14 +177,6 @@ A Google Forms survey was used in this study, and the data was linked into a Goo
 For the Python script, the SciPy Statistics library (\texttt{scipy==1.6.3}) was used to perform statistical analyses. The Pandas library (\texttt{pandas==1.2.4}) was used to import data from a CSV (exported from Google Sheets) into the Python script. Finally, the Matplotlib library (\texttt{matplotlib==3.4.2}) was used to draw scatter plots from the data collected.
 
 \chapter*{Appendix I}
-On the following two pages are presented the raw data collected over the course of study. In order to protect the privacy of those participating in the study, respondents' first and last names have been entirely ommitted, and their friends' and family members' names have been replaced with the unique timestamps associated with that person's response. The first table displays raw data for students (including friends), and the second for family members.
-
-\newgeometry{left=0.1cm,right=0.1cm}
-\include{students_data.tex}
-\include{family_data.tex}
-\restoregeometry
-
-\chapter*{Appendix II}
 The following scripts were used to analyze the data gathered.
 
 Main program:
@@ -198,5 +190,13 @@ Wrapper script (using POSIX sh):
 Class definitions for students and families:
 
 \lstinputlisting[language=Python]{people.py}
+
+\chapter*{Appendix II}
+On the following two pages are presented the raw data collected over the course of study. In order to protect the privacy of those participating in the study, respondents' first and last names have been entirely ommitted, and their friends' and family members' names have been replaced with the unique timestamps associated with that person's response. The first table displays raw data for students (including friends), and the second for family members.
+
+\newgeometry{left=0.1cm,right=0.1cm}
+\include{students_data.tex}
+\include{family_data.tex}
+\restoregeometry
 
 \end{document}
