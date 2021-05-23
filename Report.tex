@@ -50,16 +50,16 @@
 
 \tableofcontents
 
-\addcontentsline{toc}{chapter}{Introduction}
 \chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
 One of Tinbergen's four causes of behavior is development, or ontogeny: the question of how a behavior came to an organism in the first place.\footnote{Special thanks to Lincoln Auster and Thomas Morford for code review, bug fixes and formatting advice.} While this subject can delve deep into Mendellian inheritance and meiosis, or different forms of learning and different classifications of innate behaviors, the most basic and central question asked during the study of development is that of nature versus nurture: is the trait genetically inherited or environmentally acquired? Of course, traits are often not one or the other but will rather fall on a spectrum between the two; the purpose of this project is to study one such trait in hopes of determining whether it is influenced more by genes or environment. This trait is musical taste: what kinds of music do people like to listen to?
 
 It is surprisingly common, in the researcher's own (anecdotal) experience, to find two friends who have vastly different music tastes, and the same applies to family members. This leads into the question of who makes more of an impact on your music tastes --- friends will often attest to have virtually identical music taste, but the same could apply to family members; it only seems to vary from person to person and family to family. By gathering a large sample of data, however, it could be determined whether there is actually some sort of trend: an association between a person's music tastes and their friends'/family's.
 
 It was expected that both family members and friends would have a significant impact on a person's music choices, although one might not necessarily outweigh the other: that is, there may not be a significant difference between the family's impact and the friends'. This is because people have very strong reasons to like similar music to both a family member and a friend, so that one relationship type should not be significantly closer than the other.
 
-\addcontentsline{toc}{chapter}{Materials and Methods}
 \chapter*{Materials and Methods}
+\addcontentsline{toc}{chapter}{Materials and Methods}
 A Google Forms survey was used to gather data for this study, and a Python script was used to analyze it (included in Appendix I). Each respondent was asked to select the musical genres that they enjoy out of 6 options: pop, jazz/blues, rock, country/folk, rap/hip hop, and classical. The respondent was then asked to decide whether they like or dislike each of 12 musical clips, out of which each genre was represented by two clips: Uptown Funk and Dead Girl in the Pool (pop), What a Wonderful World and The Thrill is Gone (jazz and blues), Bohemian Rhapsody and Hurt (rock), Old Town Road and I Walk the Line (country and folk), Rap God and Gangsta's Paradise (rap and hip hop), and finally Eine Kleine Nachtmusik and Duel of the Fates (classical).
 
 For the purposes of this study, it was useful to be able to identify whether there were some genres that the respondent did not necessarily dislike, even if it was not something they thought they actively listen to. So, while the first part of the survey asked for what they thought they like, the second part of the survey was in an attempt to see what they might actually like. However, it's possible that somebody who generally likes a certain genre did not like the specific two clips that they had been asked about from that genre. So, the question about categories needed to be weighted more heavily than the questions about specific songs. Further, an overall system was needed for condensing the 2-part data that would be gathered --- genre and music preference, both on nominal scales --- into one number that could be used in statistical testing. Hence, the following scoring system was created, as seen in Figure 1.
@@ -73,16 +73,28 @@ This means that if a respondent says they enjoy a particular genre but doesn't l
 
 Each respondent was requested to provide the names of two friends and two family members. The family members were sent a slightly different survey, which was identical to the one for students except that it did not ask them for the names of their friends or family members. At the end of data collection, each respondent was matched up to their two family members and two friends to perform statistical analysis. If not all of the family members and friends listed had responded to the survey, only the ones whose responses were present were tested against the student.
 
-\addcontentsline{toc}{chapter}{Data}
 \chapter*{Data}
+\addcontentsline{toc}{chapter}{Data}
 There were two main variables being compared in this study: relationship type (family member or friend), on a nominal (binary) scale; and genre rankings that demonstrate the degree to which someone enjoys a particular genre, on an ordinal scale.
 
 \begin{figure}[h!]
-  \centerline{\includegraphics{Genre #1.png}}
-        \caption{\small Scatter plot displaying the data gathered for Genre \#1, pop music. Here, the absolute difference between the student's ratings and their family member's (median if both family members responded) (x) is plotted against the absolute difference between the student's ratings and their friend's (again, median if both friends responded).}
+  \centerline{\includegraphics[width=\textwidth]{{"Genre #1"}.png}}
+  \caption{\small Scatter plot displaying the data gathered for Genre \#1, pop music. Here, the absolute difference between the student's ratings and their family member's (median if both family members responded) (x) is plotted against the absolute difference between the student's ratings and their friend's (again, median if both friends responded).}
 
-        \centerline{\includegraphics{Genre #1.png}}
-        \caption{\small Scatter plot displaying the data gathered for Genre \#1, pop music. Here, the absolute difference between the student's ratings and their family member's (median if both family members responded) (x) is plotted against the absolute difference between the student's ratings and their friend's (again, median if both friends responded).}
+  \centerline{\includegraphics[width=0.75\textwidth]{{"Genre #2"}.png}}
+  \caption{\small Similar to above, scatter plot for Genre \#2, jazz and blues.}
+
+  \centerline{\includegraphics{{"Genre #3"}.png}}
+  \caption{\small Scatter plot for Genre \#3, rock music.}
+
+  \centerline{\includegraphics{{"Genre #4"}.png}}
+  \caption{\small Scatter plot for Genre \#4, country and folk.}
+
+  \centerline{\includegraphics{{"Genre #5"}.png}}
+  \caption{\small Scatter plot for Genre \#5, rap and hip hop.}
+
+  \centerline{\includegraphics{{"Genre #6"}.png}}   
+  \caption{\small Scatter plot for Genre \#6, classical music.}
 \end{figure}
 
 The scatter plots above (Figures 2-7) display the results of data collection, spread across genres. The raw data gathered during this study is included in Appendix II.
@@ -95,8 +107,8 @@ A Spearman-rank correlation coefficient (SRCC) was also calculated for each rela
 
 Finally, a t-test for two correlated samples was conducted between the family members' and friends' correlation coefficients to test for a significant difference in the correlation coefficients. The test statistic reported was t = 0.14. The critical value for the t-distribution at a 95\% confidence level with 5 degrees of freedom is 2.57, and the test statistic found does not exceed this. The p-value was only p = 0.90, so the result was insignificant. Thus, we fail to reject the null hypothesis that family members and friends both influence people's musical choices to approximately the same extent.
 
-\addcontentsline{toc}{chapter}{Statistical Analysis}
 \chapter*{Statistical Analysis}
+\addcontentsline{toc}{chapter}{Statistical Analysis}
 The most preliminary technique used in analyzing the collected data was assigning each individual an ordinal-scale ranking for each genre (in order to have two easily comparable populations). The specifications of how this was done have been provided in the Methods section. Once each student, family member and friend was assigned a set of 6 ranks (as there were 6 genres involved), a comparison of medians was conducted between the data sets. Because the data was on an ordinal scale, the statistical test had to be nonparametric. Further, the data was paired because each student was related to their corresponding family member or friend in some way. Consequently, a Wilcoxon test was used to test for a significant difference between each student's rankings and their family members', and between each student's rankings and their friends'. The results of these tests are summarized in the previous section.
 
 The p-values generated by the Wilcoxon tests were sorted into an aggregated frequency table (class borders 0-0.1, 0.1-0.2, 0.2-0.3, and so on up to 1.0). This was done to each set of tests (family and friends), allowing for the construction of the contingency tables below (Tables 1 and 2). A chi-square test for association was conducted to find if there was an association between to what extent two people differ in music choice, and how the two people are related (family or friend).
@@ -151,8 +163,8 @@ Although the chi-square test returned an insignificant result, it was still wort
 
 The twelve correlation coefficients that were found (six for each relationship type) have been reported in the previous section. One last statistical test was conducted, the t-test for two correlated (paired) samples. A significant result here would have meant that one relationship type (be that family member or friend) has significantly higher correlations between two people than the other. The two samples consisted of the set of all SRCCs for family members, and the set of all SRCCs for friends (thus n=6). So, each sample was matched because every SRCC for the family members applied to the same genre as the corresponding SRCC for the friends. Further, a parametric test could be used because correlation coefficients lie on a ratio scale (with an absolute zero) and there was no reason to suspect major skew in the data. The results of the two-sample t-test were reported in the previous section as well.
 
-\addcontentsline{toc}{chapter}{Discussion}
 \chapter*{Discussion}
+\addcontentsline{toc}{chapter}{Discussion}
 Conducting the Wilcoxon tests for each student revealed that there were some cases where there was a significant difference between family members, and likewise for friends. However, when all of those cases were tallied up in a chi-square test, there did not appear to be a significant association between relationship type and music choices. While calculating the SRCCs supported this conclusion for the most part, one of the coefficients did suggest that family members may exert a special influence on students' choices when it comes to pop music based on the correlation coefficient alone. However, when a t-test was run between the SRCCs to check for a significant difference, the result was clear: neither relationship has greater power over a person's musical choices than the other.
 
 The data gathered thus supports the original hypothesis that an environmental influence would not outweigh a genetical influence on a person's music choices, and vice versa. However, there are two ways these results could have been made more reliable:
@@ -166,8 +178,8 @@ A redo of this study could have the potential to be more successful if more time
 
 Another possible flaw in this research was that it assumes that family members are the ``genetic'' factor, and friends are the ``environmental''. While it's true that there's usually no genetic relationship between two friends, the problem is that one's family is not only who they share the greatest amount of their DNA with, but also who they have usually grown up around and been brought up with. This means that a family member might encapsulate both the genetic and the environmental factor. Thus, this study cannot really conclude whether music has a large genetic part, because it is quite possible that the overlaps found between students and their family members were due to a shared environment --- in some cases, people may even share much more of their environment with family members than with friends. To rectify this, a completely different study might need to be carried out, maybe one connecting genetically related people who have not been in the same environment (cousins? siblings who were separated at birth? long-lost parents or children? clones?) might be more powerful in revealing whether there is more of a genetic and an environmental factor at play.
 
-\addcontentsline{toc}{chapter}{References}
 \chapter*{References}
+\addcontentsline{toc}{chapter}{References}
 A Google Forms survey was used in this study, and the data was linked into a Google Sheet spreadsheet. The following twelve songs were used during the study; the relevant portions were clipped out (10 seconds) for survey-takers to listen to.
 
 \begin{enumerate}
@@ -187,9 +199,9 @@ A Google Forms survey was used in this study, and the data was linked into a Goo
 
 For the Python script, the SciPy Statistics library (\texttt{scipy==1.6.3}) was used to perform statistical analyses. The Pandas library (\texttt{pandas==1.2.4}) was used to import data from a CSV (exported from Google Sheets) into the Python script. Finally, the Matplotlib library (\texttt{matplotlib==3.4.2}) was used to draw scatter plots from the data collected.
 
+\chapter*{Appendix I}
 \addcontentsline{toc}{part}{Appendices}
 \addcontentsline{toc}{chapter}{Appendix I}
-\chapter*{Appendix I}
 The following scripts were used to analyze the data gathered.
 
 Main program:
@@ -204,8 +216,8 @@ Class definitions for students and families:
 
 \lstinputlisting[language=Python]{people.py}
 
-\addcontentsline{toc}{chapter}{Appendix II}
 \chapter*{Appendix II}
+\addcontentsline{toc}{chapter}{Appendix II}
 On the following two pages are presented the raw data collected over the course of study. In order to protect the privacy of those participating in the study, respondents' first and last names have been entirely ommitted, and their friends' and family members' names have been replaced with the unique timestamps associated with that person's response. The first table displays raw data for students (including friends), and the second for family members.
 
 \newgeometry{left=0.1cm,right=0.1cm}
