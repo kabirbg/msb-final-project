@@ -232,7 +232,7 @@ def srcc(students, families):
                         )
                     )
 
-        gen_name = "Genre #%i" % (genre + 1)
+        gen_name = "Genre %i" % (genre + 1)
         print("The student ranks (x1) for " + gen_name + " were: ", end="")
         print(studentranksa)
         print("The family ranks (y1) for " + gen_name + " were: ", end="")
@@ -257,8 +257,9 @@ def srcc(students, families):
         )
         friendccs.append(r)
 
-        plot.scatter(plotx, ploty, label=gen_name)  # add stud and fam to scatter plot
-        plot.legend(loc="upper left")  # create legends
+        plot.scatter(
+            plotx, ploty
+        )  # add abs diff of families (x) and friends (y) to scatter plot
         plot.set_xlabel("Abs. diff. in family's scores")
         plot.set_ylabel("Abs. diff in friends' scores")
         plt.savefig(gen_name + ".png")  # export to a png
